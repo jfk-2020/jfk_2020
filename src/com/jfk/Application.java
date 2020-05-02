@@ -7,6 +7,13 @@ package com.jfk;
 public class Application {
 
     public static void main(String[] args) {
-        System.out.println("test");
+        int x = 30;
+        int y = 45;
+        int z = y + x;
+        int k = x + y;
+        
+
+
+        System.out.println("taest");
     }
 }
