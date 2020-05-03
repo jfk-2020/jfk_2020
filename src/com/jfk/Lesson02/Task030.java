@@ -1,7 +1,6 @@
-package com.jfk;
+package com.jfk.Lesson02;
 
 import java.util.Arrays;
-import java.util.Collections;
 
 public class Task030 {
     public static void main(String[] args) {

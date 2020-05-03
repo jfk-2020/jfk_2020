@@ -1,4 +1,4 @@
-package com.jfk;
+package com.jfk.Lesson02;
 
 import java.util.Arrays;
 
