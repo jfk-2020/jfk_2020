@@ -5,4 +5,7 @@ package com.jfk;
  */
 
 public class Application {
+    // ok
+
 }
+
