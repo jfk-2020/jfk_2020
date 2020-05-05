@@ -20,7 +20,7 @@ public class Task_22 {
         } else {
             min = c;
         }
-        System.out.println("The max number is: " + min);
+        System.out.println("The min number is: " + min);
     }
 }
 
