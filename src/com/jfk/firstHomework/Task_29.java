@@ -2,8 +2,8 @@ package com.jfk.firstHomework;
 
 public class Task_29 {
     public static void main(String[] args) {
-        int a = 8;
-        int b = 7;
+        int a = 1;
+        int b = 3;
         int c = 5;
 
         if (a < b && a < c && b < c) {
