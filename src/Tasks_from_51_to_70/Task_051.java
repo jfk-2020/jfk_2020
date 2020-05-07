@@ -8,7 +8,7 @@ public class Task_051 {
         int m = (number % 100) / 10;
         int l = (number % 1000) / 100;
 
-        boolean t = (f == m + l);
-        System.out.println(t);
+        //boolean t = (f == m + l);
+        System.out.println(l);
     }
 }
