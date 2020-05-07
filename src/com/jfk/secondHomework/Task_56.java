@@ -9,11 +9,10 @@ public class Task_56 {
         int m = (number % 100) / 10;
         int l = number % 10;
 
-        int sum = f + m + l;
-        int subtraction = sum - number;
+        double sum = f + m + l;
 
         if (l > m) {
-            System.out.println(subtraction);
+            System.out.println(sum / number);
         } else {
             System.out.println(number);
         }
