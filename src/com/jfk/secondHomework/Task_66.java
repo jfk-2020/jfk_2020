@@ -4,8 +4,6 @@ public class Task_66 {
     public static void main(String[] args) {
         int number = 5644;
 
-        int first = number / 1000;
-        int mid = (number % 1000) / 100;
         int mid2 = (number % 100) / 10;
         int last = number % 10;
 
