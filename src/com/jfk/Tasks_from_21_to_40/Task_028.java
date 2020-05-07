@@ -11,15 +11,11 @@ public class Task_028 {
          */
 
         if (a == 0 || b == 0 || c == 0) {
-            System.out.println("FALSE");
-        }
-        else if(c / b == b / a)
-        {
-            System.out.println("TRUE");
-        }
-        else
-            {
-            System.out.println("FALSE");
+            System.out.println(false);
+        } else if (c / b == b / a) {
+            System.out.println(true);
+        } else {
+            System.out.println(false);
         }
     }
 }
