@@ -1,6 +1,7 @@
 package com.jfk;
 
 public class task_23 {
+
     public static void main(String[] args) {
         int a = 8;
         int b = 9;
