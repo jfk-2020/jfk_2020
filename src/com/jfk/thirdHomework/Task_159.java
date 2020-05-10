@@ -14,5 +14,4 @@ public class Task_159 {
         }
         System.out.println(product);
     }
-
 }
