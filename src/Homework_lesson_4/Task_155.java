@@ -6,7 +6,7 @@ public class Task_155 {
         int n = 3;
         int sum = 0 ;
 
-        for ( int i = 0 ; i < 20 ; i+=3 ) {
+        for ( int i = 10 ;i>= 10 && i < 100; i+=3 ) {
 
            sum = sum + i; }
         System.out.println(sum);
