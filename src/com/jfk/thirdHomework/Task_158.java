@@ -7,7 +7,7 @@ public class Task_158 {
 
         for (int i = 100; i <= 999; i++) {
             if (i % 2 != 0 && i % 3 != 0) {
-               product = product * i;
+                product = product * i;
                 System.out.println(i);
             }
         }
