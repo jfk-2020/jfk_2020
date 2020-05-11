@@ -1,4 +1,4 @@
-package com.jfk.Lesson04;
+package com.jfk.Lesson04.Tasks071_080;
 
 public class Task074 {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.jfk.Lesson04;
+package com.jfk.Lesson04.Tasks081_090;
 
 import java.text.DecimalFormat;
 
