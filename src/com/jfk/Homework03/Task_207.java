@@ -1,8 +1,8 @@
-package com.jfk.thirdHomework;
+package com.jfk.Homework03;
 
-public class Task_208 {
+public class Task_207 {
     public static void main(String[] args) {
-        int n = 1234;
+        int n = 42334;
         int a = 0;
         boolean t = false;
 
@@ -10,7 +10,7 @@ public class Task_208 {
             a = n % 10;
             n = n / 10;
 
-            if (n == a) {
+            if (a == 2) {
                 t = true;
                 break;
             }
@@ -18,5 +18,4 @@ public class Task_208 {
         System.out.println(t);
     }
 }
-
 

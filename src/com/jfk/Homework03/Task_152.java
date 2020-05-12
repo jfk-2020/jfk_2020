@@ -1,4 +1,4 @@
-package com.jfk.thirdHomework;
+package com.jfk.Homework03;
 
 //print the product of all the natural numbers that % n == 0
 public class Task_152 {
