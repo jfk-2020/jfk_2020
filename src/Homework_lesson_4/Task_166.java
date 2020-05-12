@@ -1,6 +1,6 @@
 package Homework_lesson_4;
 
-public class Task_166 {
+public class    Task_166 {
     public static void main(String[] args) {
         int n = 6561;
         int y = 0;
