@@ -1,13 +1,12 @@
-package com.jfk.Homework03;
+package com.jfk.homework03;
 
-public class Task_153 {
+public class Task_157 {
     public static void main(String[] args) {
-//Print the sum of all natural numbers that n % i == 2
-        int n = 104;
+        //print the sum of all the three digit numbers that % 5 !=0
         int sum = 0;
 
-        for (int i = 1; i <= n; i++) {
-            if (n % i == 2) {
+        for (int i = 100; i <= 999; i++) {
+            if (i % 5 != 0) {
                 sum = sum + i;
                 System.out.println(i);
             }
