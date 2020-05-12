@@ -1,4 +1,4 @@
-package com.jfk.firstHomework;
+package com.jfk.Homework01;
 
 public class Task_26 {
     public static void main(String[] args) {
