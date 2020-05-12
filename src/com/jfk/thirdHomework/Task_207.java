@@ -2,9 +2,9 @@ package com.jfk.thirdHomework;
 
 public class Task_207 {
     public static void main(String[] args) {
-        int n = 43334;
+        int n = 42334;
         int a = 0;
-        boolean t = true;
+        boolean t = false;
 
         while (n != 0) {
             a = n % 10;
@@ -13,8 +13,6 @@ public class Task_207 {
             if (a == 2) {
                 t = true;
                 break;
-            } else {
-                t = false;
             }
         }
         System.out.println(t);
