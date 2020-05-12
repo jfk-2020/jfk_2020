@@ -1,4 +1,4 @@
-package com.jfk.secondHomework;
+package com.jfk.Homework02;
 
 //find the smallest digit of a three digit number
 public class Task_55 {

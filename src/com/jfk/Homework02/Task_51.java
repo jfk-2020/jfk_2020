@@ -1,4 +1,4 @@
-package com.jfk.secondHomework;
+package com.jfk.Homework02;
 
 //Check if number of points equals the sum of number of decimals and number of hundreds
 public class Task_51 {
