@@ -1,8 +1,9 @@
-package com.jfk.Homework02;
+package com.jfk.homework02;
 
-public class Task_69 {
+public class Task_70 {
     public static void main(String[] args) {
-        int number = 9239;
+
+        int number = 1234;
 
         int first = number / 1000;
         int mid = (number % 1000) / 100;
@@ -10,11 +11,11 @@ public class Task_69 {
         int last = number % 10;
 
         int y;
-        int sum = last + mid2 + mid + first;
-        if (sum > 20) {
-            y = 1;
-        } else {
+        int product = last * mid2 * mid * first;
+        if (product > 200) {
             y = 0;
+        } else {
+            y = 1;
         }
         System.out.println(y);
     }

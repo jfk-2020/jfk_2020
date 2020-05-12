@@ -1,4 +1,4 @@
-package com.jfk.Homework02;
+package com.jfk.homework02;
 
 //print true if the sum of the number points and the decimal points equals to the sum of hundred points and thousand points.
 public class Task_61 {

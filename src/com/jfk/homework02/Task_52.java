@@ -1,4 +1,4 @@
-package com.jfk.Homework02;
+package com.jfk.homework02;
 
 //Check if there are the same numbers in the three digit number
 public class Task_52 {

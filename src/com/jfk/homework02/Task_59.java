@@ -1,4 +1,4 @@
-package com.jfk.Homework02;
+package com.jfk.homework02;
 
 //print the numbers by ascending order
 

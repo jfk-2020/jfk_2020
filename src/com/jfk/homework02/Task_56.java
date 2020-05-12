@@ -1,4 +1,4 @@
-package com.jfk.Homework02;
+package com.jfk.homework02;
 
 //print subtraction result of the three digit number and the sum of its digits if the last digit is greater than the second.
 public class Task_56 {
