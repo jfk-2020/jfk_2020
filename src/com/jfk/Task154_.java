@@ -2,12 +2,14 @@ package com.jfk;
 
 public class Task154_ {
     public static void main(String[] args) {
-        int n = 3;
-        int sum = 0 ;
+        int n = 4;
+        int sum = 1;
 
-        for ( int i = 10 ;i>= 10 && i < 100; i+=3 ) {
-
-            sum = sum + i; }
+        for (int i = n ; i < 20 ; i++ ){
+            if (i % n == 3 ){
+                sum = sum*i;
+            }
+        }
         System.out.println(sum);
     }
 }
