@@ -1,4 +1,4 @@
-package com.jfk.Lesson06.Tasks281_290;
+package com.jfk.Lesson06;
 
 import java.util.Random;
 
@@ -26,5 +26,28 @@ public class ArrayGenerator {
             }
         }
         System.out.println();
+    }
+
+    public static int minIdentifier(int[] array){
+        int identifier = 0;
+        int min = Integer.MAX_VALUE;
+        for (int i = 0; i < array.length; i++){
+            if (array[i] < min) {
+                identifier = i;
+                min = array[i];
+            }
+        }
+        return identifier;
+    }
+    public static int maxIdentifier(int[] array){
+        int identifier = 0;
+        int min = Integer.MIN_VALUE;
+        for (int i = 0; i < array.length; i++){
+            if (array[i] > min) {
+                identifier = i;
+                min = array[i];
+            }
+        }
+        return identifier;
     }
 }

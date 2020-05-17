@@ -1,6 +1,6 @@
 package com.jfk.Lesson05.Tasks231_250;
 
-import com.jfk.Lesson06.Tasks281_290.ArrayGenerator;
+import com.jfk.Lesson06.ArrayGenerator;
 
 public class Task238 {
     public static void main(String[] args) {

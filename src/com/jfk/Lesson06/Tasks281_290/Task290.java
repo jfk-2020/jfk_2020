@@ -1,5 +1,7 @@
 package com.jfk.Lesson06.Tasks281_290;
 
+import com.jfk.Lesson06.ArrayGenerator;
+
 public class Task290 {
     public static void main(String[] args) {
         int n = 10;
