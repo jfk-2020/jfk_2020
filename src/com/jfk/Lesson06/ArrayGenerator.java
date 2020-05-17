@@ -17,7 +17,30 @@ public class ArrayGenerator {
         return array;
     }
 
+    public static char[] generateAsRandomChar(int elementCount) {
+        char[] array = new char[elementCount];
+        for (int i = 0; i < array.length; i++) {
+            if (random.nextInt(2) == 0) {
+                array[i] = (char)('a' + random.nextInt(27));
+            } else {
+                array[i] = (char)('A' + random.nextInt(27));
+            }
+        }
+        return array;
+    }
+
     public static void displayArray(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            if (i + 1 == array.length) {
+                System.out.print(array[i]);
+            } else {
+                System.out.print(array[i] + ", ");
+            }
+        }
+        System.out.println();
+    }
+
+    public static void displayArrayChar(char[] array) {
         for (int i = 0; i < array.length; i++) {
             if (i + 1 == array.length) {
                 System.out.print(array[i]);
