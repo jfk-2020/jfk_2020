@@ -1,18 +1,18 @@
 package Homework_201_210;
 
 public class Task_202 {
-    public static void main(String[] args) {
+    public static void main (String[]args){
+            int n = 100109 ;
+            int m = 0;
+            int sum = 0;
+            for (int i= 1;i<= n; i*=10) {
 
-        int n = 2154;
-        int mianish= n%10;
-        int erknish=n%100 / 10;
-        int eranish= n%1000 /100;
-        int qaranish= n/1000;
-
- int x = mianish+erknish+eranish+qaranish;
-
-        System.out.println(x);
+                m = n /i % 10;
+                sum = sum + m;
+            }
 
 
+            System.out.println(sum);
+        }
     }
-}
+
