@@ -5,10 +5,7 @@ public class Task_224 {
         int k = 7;
         int sum = 0;
 
-        int[] array = new int[3];
-        array[0] = 4;
-        array[1] = 9;
-        array[2] = 3;
+        int[] array = new int[]{4, 9, 3};
 
         for (int i = 0; i < array.length; i++) {
             if (Math.abs(array[i]) < k) {

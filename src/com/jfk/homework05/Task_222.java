@@ -6,12 +6,7 @@ public class Task_222 {
         int c = 0;
         int d = 3;
 
-        int[] array = new int[5];
-        array[0] = 2;
-        array[1] = 3;
-        array[2] = 5;
-        array[3] = 7;
-        array[4] = 9;
+        int[] array = new int[]{2, 3, 5, 7, 9};
 
         if (c < 0 || c > array.length) {
             c = 0;

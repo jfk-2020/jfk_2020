@@ -6,11 +6,7 @@ public class Task_227 {
         int sum = 0;
         int count = 0;
 
-        int[] array = new int[4];
-        array[0] = 3;
-        array[1] = 9;
-        array[2] = 12;
-        array[3] = 23;
+        int[] array = new int[]{3, 9, 12, 23};
 
         for (int i = 0; i < array.length; i++) {
             if (i % k == 0) {

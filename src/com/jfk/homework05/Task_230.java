@@ -6,11 +6,7 @@ public class Task_230 {
         double sum = 0;
         int count = 0;
 
-        double[] array = new double[4];
-        array[0] = 3.15;
-        array[1] = 9.20;
-        array[2] = 7.12;
-        array[3] = 2.17;
+        double[] array = new double[]{3.15, 9.20, 7.12, 2.17};
 
         for (int i = 0; i < array.length; i++) {
             if (((int)array[i]) % k == 0) {
