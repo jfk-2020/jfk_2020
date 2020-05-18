@@ -1,0 +1,19 @@
+package com.jfk.homework05;
+
+public class Task_217 {
+    public static void main(String[] args) {
+        int product = 1;
+        int[] a = new int[4];
+        a[0] = 1;
+        a[1] = 3;
+        a[2] = 10;
+        a[3] = 5;
+
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] % 2 != 0) {
+                product *= a[i] * a[i];
+            }
+        }
+        System.out.println(product);
+    }
+}
