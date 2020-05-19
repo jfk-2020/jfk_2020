@@ -65,6 +65,7 @@ public class ArrayGenerator {
         }
         return identifier;
     }
+
     public static int maxIdentifier(int[] array){
         int identifier = 0;
         int min = Integer.MIN_VALUE;
