@@ -8,7 +8,10 @@ public class ArrayGenerator {
     public static int[] generateAsRandom(int elementCount) {
         int[] array = new int[elementCount];
         for (int i = 0; i < array.length; i++) {
-            if (random.nextInt(2) == 0) {
+            int prefix = random.nextInt(11);
+            if (prefix == 0) {
+                array[i] = 0;
+            } else if (prefix % 2 == 0) {
                 array[i] = -1 * random.nextInt(100);
             } else {
                 array[i] = random.nextInt(100);
