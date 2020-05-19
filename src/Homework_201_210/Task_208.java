@@ -2,13 +2,18 @@ package Homework_201_210;
 
 public class Task_208 {
     public static void main(String[] args) {
-        int n = 2622;
-        int mianish= n%10;
-        int erknish=n%100 / 10;
-        int eranish= n%1000 /100;
-        int qaranish= n/1000;
+        int n = 2222;
         boolean x = false;
- if (mianish == erknish && erknish == eranish && eranish== qaranish){x = true;}
+        int t = 0;
+        int k = 0;
+        for ( int i = 1; i <= n ; i*= 10 ) {
+         t=   n / i % 10;
+        if (n>=10*i){k = n /(10*i) %10;} else {x=true;}
+         if (t==k ){x= true;}
+         else { x = false ; break;}
+
+
+        }
         System.out.println(x);
     }
 }
