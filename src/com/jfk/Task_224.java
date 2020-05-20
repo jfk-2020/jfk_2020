@@ -1,0 +1,17 @@
+package com.jfk;
+
+public class Task_224 {
+    public static void main(String[] args) {
+        int k = 8;
+        int sum = 0;
+
+        int[] array = new int[]{3, 10, 20};
+
+        for (int i = 0; i < array.length; i++) {
+            if (Math.abs(array[i]) < k) {
+                sum += array[i];
+            }
+        }
+        System.out.println(sum);
+    }
+}
