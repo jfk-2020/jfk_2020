@@ -1,4 +1,4 @@
-package com.jfk.homework05.homework261_290;
+package com.jfk.homework05.homework261_270;
 
 import com.jfk.ArrayElementGenerator;
 
