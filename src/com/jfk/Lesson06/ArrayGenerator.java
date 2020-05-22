@@ -20,6 +20,21 @@ public class ArrayGenerator {
         return array;
     }
 
+    public static double[] generateAsRandomDouble(int elementCount) {
+        double[] array = new double[elementCount];
+        for (int i = 0; i < array.length; i++) {
+            int prefix = random.nextInt(11);
+            if (prefix == 0) {
+                array[i] = 0;
+            } else if (prefix % 2 == 0) {
+                array[i] = -1 * Math.round(random.nextDouble()*100000) / 100.0;
+            } else {
+                array[i] = Math.round(random.nextDouble()*100000) / 100.0;
+            }
+        }
+        return array;
+    }
+
     public static char[] generateAsRandomChar(int elementCount) {
         char[] array = new char[elementCount];
         for (int i = 0; i < array.length; i++) {
@@ -33,6 +48,17 @@ public class ArrayGenerator {
     }
 
     public static void displayArray(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            if (i + 1 == array.length) {
+                System.out.print(array[i]);
+            } else {
+                System.out.print(array[i] + ", ");
+            }
+        }
+        System.out.println();
+    }
+
+    public static void displayArrayDouble(double[] array) {
         for (int i = 0; i < array.length; i++) {
             if (i + 1 == array.length) {
                 System.out.print(array[i]);
