@@ -13,9 +13,9 @@ public class Task_421 {
         };
         int l = 3;
         int count  = 0;
-        for (int i = 0;i < ints.length ;i++)
+        for (int i = 1;i < ints.length ;i++)
 
-        {for (int k =0; k< i+1 ; k++){if (ints[i][k] % l == 0){count ++;};
+        {for (int k =0; k< i ; k++){if (ints[i][k] % l == 0){count ++;};
         System.out.print(ints[i][ k]+" " );}
             System.out.println();
 
