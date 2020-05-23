@@ -4,7 +4,7 @@ import com.jfk.ArrayElementGenerator;
 
 public class Task_282 {
     public static void main(String[] args) {
-        int []ints ={2 ,5 , -5 , 0 , 4 , 6 , -8 , 7};
+        int[] ints = {2, 5, -5, 0, 4, 6, -8, 7};
         int [] y ;
         int counter = 0;
         for (int i = 0 ; i < ints.length ; i++) {
