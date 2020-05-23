@@ -11,8 +11,8 @@ public class Task_422 {
             int count = 0;
             int sum = 0 ;
 
-            for (int i = 0 ; i < ints.length ; i++){
-                for ( int k = 0 ; k < i+1 ; k++){
+            for (int i = 1 ; i < ints.length ; i++){
+                for ( int k = 0 ; k < i ; k++){
 
 
                     if (ints [i][k] % 5 ==0){
