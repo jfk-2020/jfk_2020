@@ -13,13 +13,15 @@ public class Task_427 {
         int k = 3;
         for (int i = 0; i < array.length; i++) {
             for (int m = 0; m < array[i].length - i - 1; m++) {
-                if (array[i][m] % k == 0) {
-                    product *= array[i][m];
+                if (array[i][k] % k == 0) {
+                    product *= array[i][k];
                 }
-                System.out.print(array[i][m] + " ");
+                System.out.print(array[i][k] + " ");
             }
             System.out.println();
         }
+
         System.out.println(product);
     }
 }
+
