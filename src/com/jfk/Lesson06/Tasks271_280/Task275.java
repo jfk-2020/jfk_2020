@@ -6,7 +6,7 @@ public class Task275 {
     public static void main(String[] args) {
         int n = 20;
         char[] array = ArrayGenerator.generateAsRandomChar(n);
-        ArrayGenerator.displayArrayChar(array);
+        ArrayGenerator.displayArray(array);
         int count = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i] < 'k') {

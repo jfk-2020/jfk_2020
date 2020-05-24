@@ -6,7 +6,7 @@ public class Task280 {
     public static void main(String[] args) {
         int n = 20;
         char[] array = ArrayGenerator.generateAsRandomChar(n);
-        ArrayGenerator.displayArrayChar(array);
+        ArrayGenerator.displayArray(array);
         int count = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i] == 'f') {
@@ -25,6 +25,6 @@ public class Task280 {
             }
 
         }
-        ArrayGenerator.displayArrayChar(newArray);
+        ArrayGenerator.displayArray(newArray);
     }
 }

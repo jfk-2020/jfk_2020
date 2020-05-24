@@ -6,7 +6,7 @@ public class Task358 {
     public static void main(String[] args) {
         int n = 20;
         double[] nums = ArrayGenerator.generateAsRandomDouble(n);
-        ArrayGenerator.displayArrayDouble(nums);
+        ArrayGenerator.displayArray(nums);
         double delta = 1;
         double num = 0;
         for (int i = 0; i < nums.length; i++) {

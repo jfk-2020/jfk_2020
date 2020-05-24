@@ -58,7 +58,7 @@ public class ArrayGenerator {
         System.out.println();
     }
 
-    public static void displayArrayDouble(double[] array) {
+    public static void displayArray(double[] array) {
         for (int i = 0; i < array.length; i++) {
             if (i + 1 == array.length) {
                 System.out.print(array[i]);
@@ -69,7 +69,7 @@ public class ArrayGenerator {
         System.out.println();
     }
 
-    public static void displayArrayChar(char[] array) {
+    public static void displayArray(char[] array) {
         for (int i = 0; i < array.length; i++) {
             if (i + 1 == array.length) {
                 System.out.print(array[i]);
@@ -104,7 +104,7 @@ public class ArrayGenerator {
         return identifier;
     }
 
-    public static int minIdentifierDouble(double[] array){
+    public static int minIdentifier(double[] array){
         int identifier = 0;
         double min = Double.MAX_VALUE;
         for (int i = 0; i < array.length; i++){
@@ -116,7 +116,7 @@ public class ArrayGenerator {
         return identifier;
     }
 
-    public static int maxIdentifierDouble(double[] array){
+    public static int maxIdentifier(double[] array){
         int identifier = 0;
         double min = Double.MIN_VALUE;
         for (int i = 0; i < array.length; i++){
@@ -151,6 +151,14 @@ public class ArrayGenerator {
 
     public static int[] clearArray(int[] x, int count) {
         int[] y = new int[count];
+        for (int i = 0; i < count; i++) {
+            y[i] = x[i];
+        }
+        return y;
+    }
+
+    public static double[] clearArray(double[] x, int count) {
+        double[] y = new double[count];
         for (int i = 0; i < count; i++) {
             y[i] = x[i];
         }

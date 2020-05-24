@@ -10,7 +10,7 @@ public class Task359 {
         int n = 20;
         double[] nums = ArrayGenerator.generateAsRandomDouble(n);
         Arrays.sort(nums);
-        ArrayGenerator.displayArrayDouble(nums);
+        ArrayGenerator.displayArray(nums);
         int x = 57;
         boolean isHave = false;
         for (int k = 1; k < nums.length; k++) {

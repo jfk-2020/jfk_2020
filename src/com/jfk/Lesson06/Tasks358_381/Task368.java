@@ -6,9 +6,9 @@ public class Task368 {
     public static void main(String[] args) {
         int n = 20;
         double[] x = ArrayGenerator.generateAsRandomDouble(n);
-        ArrayGenerator.displayArrayDouble(x);
+        ArrayGenerator.displayArray(x);
         double[] y = ArrayGenerator.generateAsRandomDouble(n);
-        ArrayGenerator.displayArrayDouble(y);
+        ArrayGenerator.displayArray(y);
         double max = 0;
         int k1 = -1;
         int k2 = -1;

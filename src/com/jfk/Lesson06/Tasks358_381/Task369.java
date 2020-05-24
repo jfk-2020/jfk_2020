@@ -6,11 +6,11 @@ public class Task369 {
     public static void main(String[] args) {
         int n = 30;
         double[] x = ArrayGenerator.generateAsRandomDouble(n);
-        ArrayGenerator.displayArrayDouble(x);
+        ArrayGenerator.displayArray(x);
         double[] y = ArrayGenerator.generateAsRandomDouble(n);
-        ArrayGenerator.displayArrayDouble(y);
+        ArrayGenerator.displayArray(y);
         for (int i = 0; i < x.length; i++) {
-            double min = x[ArrayGenerator.minIdentifierDouble(x)];
+            double min = x[ArrayGenerator.minIdentifier(x)];
             if (min == Double.MIN_VALUE) {
                 break;
             }
