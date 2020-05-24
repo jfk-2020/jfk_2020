@@ -103,4 +103,39 @@ public class ArrayGenerator {
         }
         return identifier;
     }
+
+    public static int minIdentifierDouble(double[] array){
+        int identifier = 0;
+        double min = Double.MAX_VALUE;
+        for (int i = 0; i < array.length; i++){
+            if (array[i] < min) {
+                identifier = i;
+                min = array[i];
+            }
+        }
+        return identifier;
+    }
+
+    public static int maxIdentifierDouble(double[] array){
+        int identifier = 0;
+        double min = Double.MIN_VALUE;
+        for (int i = 0; i < array.length; i++){
+            if (array[i] > min) {
+                identifier = i;
+                min = array[i];
+            }
+        }
+        return identifier;
+    }
+
+    public static boolean isExist(int[] x, int element) {
+        boolean isExist = false;
+        for (int i = 0; i < x.length; i++) {
+            if (x[i] == element) {
+                isExist = true;
+                break;
+            }
+        }
+        return isExist;
+    }
 }
