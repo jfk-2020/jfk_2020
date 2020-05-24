@@ -138,4 +138,22 @@ public class ArrayGenerator {
         }
         return isExist;
     }
+
+    public static int countOfExists(int[] x, int element) {
+        int count = 0;
+        for (int i = 0; i < x.length; i++) {
+            if (x[i] == element) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public static int[] clearArray(int[] x, int count) {
+        int[] y = new int[count];
+        for (int i = 0; i < count; i++) {
+            y[i] = x[i];
+        }
+        return y;
+    }
 }
