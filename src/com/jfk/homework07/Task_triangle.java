@@ -24,6 +24,54 @@ public class Task_triangle {
             }
             System.out.println();
         }
+        /*
+         * * * * *
+         * * * *
+         * * *
+         * *
+         *
+         */
+
+        /*
+         *
+         * *
+         * * *
+         * * * *
+         * * * * *
+         */
+        System.out.println();
+        for (int i = 0; i < 5; i++) {
+            for (int k = 0; k < 5; k++) {
+                if (i + k == 5) {
+                    System.out.print("*");
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+
+        for (int i = 0; i < 5; i++) {
+            for (int k = 0; k < 5; k++) {
+                if (4 - i <= k) {
+                    System.out.print(" * ");
+                } else {
+                    System.out.print("   ");
+                }
+            }
+            System.out.println();
+        }
+
+        for (int i = 0; i < 5; i++) {
+            for (int k = 0; k < 11; k++) {
+                if (k < 11 / 2 - i || k > 11 / 2 + i) {
+                    System.out.print(" ");
+                } else {
+                    System.out.print("*");
+                }
+            }
+            System.out.println();
+        }
     }
 }
 
