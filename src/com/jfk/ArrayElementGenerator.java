@@ -22,6 +22,18 @@ public class ArrayElementGenerator {
         return array;
     }
 
+    public static char[] generateCharArray(int elementCount) {
+        char[] array = new char[elementCount];
+        for (int i = 0; i < array.length; i++) {
+            if (random.nextInt(2) == 0) {
+                array[i] = (char) (65 + random.nextInt(27));
+            } else {
+                array[i] = (char) (97 + random.nextInt(27));
+            }
+        }
+        return array;
+    }
+
     public static void displayArray(int[] array) {
         for (int i = 0; i < array.length; i++) {
             if (i + 1 == array.length) {
