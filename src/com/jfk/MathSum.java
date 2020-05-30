@@ -107,4 +107,9 @@ public class MathSum {
         if (first == null || second == null) return null;
         return summarizeBigNumbers(first.toCharArray(), second.toCharArray());
     }
+
+    //Tnayin
+    //grel hamapatasxanabar hanum gorcoxutyuny
+    //lracnel bac toxnvac tnayinnery
+    //Pordzel grel 2 mec tveri bazmapatkman cragiry
 }
