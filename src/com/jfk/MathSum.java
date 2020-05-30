@@ -7,8 +7,7 @@ package com.jfk;
 public class MathSum {
     public static void main(String[] args) {
         String firstArgument = "454657321354765132465432143514341354121358";
-//        String secondArgument =     "3213545632122365432143514341354121342";
-        String secondArgument = null;
+        String secondArgument = "3213545632122365432143514341354121342";
         char[] result = summarizeBigNumbers(firstArgument, secondArgument);
         reverse(result);
         if (result != null) {
