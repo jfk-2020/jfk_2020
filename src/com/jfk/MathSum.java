@@ -5,14 +5,15 @@ package com.jfk;
  */
 
 public class MathSum {
-
-
     public static void main(String[] args) {
         String firstArgument = "454657321354765132465432143514341354121358";
-        String secondArgument = "3213545632122365432143514341354121342";
+//        String secondArgument =     "3213545632122365432143514341354121342";
+        String secondArgument = null;
         char[] result = summarizeBigNumbers(firstArgument, secondArgument);
         reverse(result);
-        System.out.println(result);
+        if (result != null) {
+            System.out.println(result);
+        }
     }
 
     static char[] summarizeBigNumbers(char[] first, char[] second) {
@@ -80,6 +81,7 @@ public class MathSum {
     }
 
     static void reverse(char[] array) {
+        if (array == null) return;
         for (int i = 0; i < array.length / 2; i++) {
             char elem = array[i];
             array[i] = array[array.length - i - 1];
@@ -103,6 +105,7 @@ public class MathSum {
 
     //Overloading
     static char[] summarizeBigNumbers(String first, String second) {
+        if (first == null || second == null) return null;
         return summarizeBigNumbers(first.toCharArray(), second.toCharArray());
     }
 }
