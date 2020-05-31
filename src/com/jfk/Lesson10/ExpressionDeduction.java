@@ -1,8 +1,6 @@
-package com.jfk.Lesson09;
+package com.jfk.Lesson10;
 
-import java.util.jar.JarOutputStream;
-
-public class ExpressionAddition {
+public class ExpressionDeduction {
     public static void main(String[] args) {
         String add1 = "7867451459241891984";
         String add2 = "541628426516";
@@ -14,7 +12,7 @@ public class ExpressionAddition {
             System.out.print(" ");
         }
         System.out.println(addc1);
-        System.out.println("+");
+        System.out.println("-");
         for (int i = 0; i < maxLength - addc2.length + 3; i++) {
             System.out.print(" ");
         }
