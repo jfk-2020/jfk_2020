@@ -39,6 +39,20 @@ public class MatrixGenerator {
         return array;
     }
 
+    public static char[][] generateAsRandomChar(int rowCount, int columnCount) {
+        char[][] array = new char[rowCount][columnCount];
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                if (random.nextInt(2) == 0) {
+                    array[i][j] = (char)('a' + random.nextInt(27));
+                } else {
+                    array[i][j] = (char)('A' + random.nextInt(27));
+                }
+            }
+        }
+        return array;
+    }
+
     public static void display(int[][] x) {
         for (int i = 0; i < x.length; i++) {
             for (int j = 0; j < x[i].length; j++) {
@@ -49,6 +63,15 @@ public class MatrixGenerator {
     }
 
     public static void display(double[][] x) {
+        for (int i = 0; i < x.length; i++) {
+            for (int j = 0; j < x[i].length; j++) {
+                System.out.print(x[i][j] + "   ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void display(char[][] x) {
         for (int i = 0; i < x.length; i++) {
             for (int j = 0; j < x[i].length; j++) {
                 System.out.print(x[i][j] + "   ");
