@@ -35,6 +35,10 @@ public class ArrayElementGenerator {
     }
 
     public static void displayArray(int[] array) {
+        if (array == null) {
+            System.out.println("empty array");
+            return;
+        }
         for (int i = 0; i < array.length; i++) {
             if (i + 1 == array.length) {
                 System.out.print(array[i]);
