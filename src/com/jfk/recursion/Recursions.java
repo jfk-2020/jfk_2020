@@ -20,6 +20,16 @@ public class Recursions {
 
         int maxElement = getMaxElementFromArray(array, array[0], 0);
         System.out.println(maxElement);
+
+        String exp = "test:data:last";
+        System.out.println(last(exp));
+    }
+
+    public static String last(String exp) {
+        if (exp.contains(":")) {
+            return last(exp.split(":")[1]);
+        }
+        return exp;
     }
 
     public static int getMaxElementFromArray(int[] array, int max, int index) {
