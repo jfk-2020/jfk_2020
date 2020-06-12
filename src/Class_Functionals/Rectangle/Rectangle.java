@@ -1,4 +1,4 @@
-package Rectangle;
+package Class_Functionals.Rectangle;
 
 public class Rectangle {
 
@@ -12,7 +12,10 @@ public class Rectangle {
         lenght = rectangleSideLenght;
     }
 
-    public int ареа() {
+    public int аrеа() {
         return width * lenght;
+    }
+    public int sidesSum() {
+        return (width + lenght) * 2;
     }
 }
