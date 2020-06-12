@@ -13,19 +13,32 @@ public class Recursion_05 {
         } else if (x == array[mid]) {
             return mid;
         } else {
-            return 0;
+            return -1;
         }
+    }
+
+    public static int noBinarySearchFindIndex(int[] array, int number) {
+        for (int i = 0; i < array.length; ++i) {
+            if (array[i] == number) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     public static void main(String[] args) {
         int array[] = {1, 2, 4, 5, 7, 9, 13};
-        int x = 7;
+        int x = 74344;
         //Check if the target number does not exist in the array
-        if (x > array[array.length-1] || x < array[0]) {
+        if (x > array[array.length - 1] || x < array[0]) {
             System.out.println("X is not found");
-        }else {
+        } else {
             //Call the function
-            System.out.println(binarySearch(array, x, 0, array.length - 1));
+            System.out.println(binarySearch(array, x, 0, array.length));
         }
+
+        int index = noBinarySearchFindIndex(array, 1);
+        System.out.println(index);
+
     }
 }
