@@ -7,12 +7,12 @@ public class ElectricalEngine {
     private int power;
 
     //Creating constructor
-    public ElectricalEngine(int power){
+    public ElectricalEngine(int power) {
         this.power = power;
     }
 
     //Creating function to start the engine
-    public String StartEngine(){
+    public String StartEngine() {
         return StartEngine();
     }
 }

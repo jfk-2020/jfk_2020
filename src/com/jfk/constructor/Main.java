@@ -4,11 +4,11 @@ public class Main {
     public static void main(String[] args) {
 
         //Calling the constructor of the rectangle class
-        Rectangle rectangle = new Rectangle(5,3);
+        Rectangle rectangle = new Rectangle(5, 3);
         System.out.println("The perimeter of rectangular is: " + rectangle.perimeter());
 
         //Calling the constructor of triangle class
-        Triangle triangle = new Triangle(3,5,3, 10);
+        Triangle triangle = new Triangle(3, 5, 3, 10);
         System.out.println("The are of a triangle is: " + triangle.area());
         System.out.println("The sum of the sides of a triangle is: " + triangle.sum());
 

@@ -13,7 +13,7 @@ public class Rectangle {
     }
 
     //Creating function to count the perimeter
-    public  int perimeter() {
+    public int perimeter() {
         return (width + height) * 2;
     }
 }

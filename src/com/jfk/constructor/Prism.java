@@ -8,14 +8,14 @@ public class Prism {
     private int height;
 
     //Creating constructor
-    public Prism(int length, int width, int height){
+    public Prism(int length, int width, int height) {
         this.length = length;
         this.width = width;
         this.height = height;
     }
 
     //Creating function to find the volume
-    public int volume (){
+    public int volume() {
         return length * width * height;
     }
 }

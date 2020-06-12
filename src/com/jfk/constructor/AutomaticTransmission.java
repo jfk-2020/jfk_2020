@@ -7,12 +7,12 @@ public class AutomaticTransmission {
 
 
     //Creating constructor for automatic transmission
-    public AutomaticTransmission(int autoSpeed){
+    public AutomaticTransmission(int autoSpeed) {
         this.autoSpeed = autoSpeed;
     }
 
     //Creating function for auto starting the car
-    public String AutoStart (){
+    public String AutoStart() {
         return AutoStart();
     }
 }
