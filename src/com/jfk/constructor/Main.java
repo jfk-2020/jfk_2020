@@ -23,6 +23,7 @@ public class Main {
 
         //Calling the constructor of electric engine
         ElectricalEngine electricalEngine = new ElectricalEngine(17);
+        electricalEngine.startEngine();
         System.out.println("The engine is being started when driver uses the key");
 
         //Calling the constructor of manual transmission
