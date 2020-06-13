@@ -1,11 +1,11 @@
 package Class_Functionals.Circle;
 
 public class Circle {
+
     private int radius;
 
-    public Circle(int radius) {
-        radius = radius;
-
+    public Circle(int x) {
+        radius = x;
     }
 
     public double getDiameter() {
@@ -13,7 +13,7 @@ public class Circle {
     }
 
     public double getArea() {
-        return 2 * Math.PI * Math.pow(radius, 2);
+        return Math.PI * Math.pow(radius, 2);
     }
 
     public void setRadius(int radius) {

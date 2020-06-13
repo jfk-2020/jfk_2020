@@ -1,15 +1,18 @@
 package Class_Functionals.Prism;
 
-public class Prism {
-    private int pHeight;
-    private double bottomArea;
+import Class_Functionals.Triangle.Triangle;
 
-    public Prism(int pHeight, double bottomArea) {
-        this.pHeight = pHeight;
-        this.bottomArea = bottomArea;
+public class Prism {
+
+    private Triangle triangle;
+    private int height;
+
+    public Prism(Triangle tr, int h) {
+        triangle = tr;
+        height = h;
     }
 
     public double volume() {
-        return pHeight * bottomArea;
+        return triangle.аrеа() * height;
     }
 }

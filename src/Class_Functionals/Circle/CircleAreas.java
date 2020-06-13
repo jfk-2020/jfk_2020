@@ -4,6 +4,7 @@ public class CircleAreas {
     public static void main(String[] args) {
 
         Circle params= new Circle(9);
+//        System.out.println(params.getArea());
 
         System.out.println(params.getArea());
         System.out.println(params.getDiameter());
