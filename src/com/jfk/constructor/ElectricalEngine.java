@@ -2,7 +2,6 @@ package com.jfk.constructor;
 
 public class ElectricalEngine {
 
-    public static String StartEngine;
     //Fields of an electrical engine
     private int power;
 
@@ -12,7 +11,7 @@ public class ElectricalEngine {
     }
 
     //Creating function to start the engine
-    public String StartEngine() {
-        return StartEngine();
+    public void startEngine() {
+        System.out.println("Engine is started ...");
     }
 }
