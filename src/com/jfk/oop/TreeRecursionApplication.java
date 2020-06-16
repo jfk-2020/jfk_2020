@@ -8,24 +8,24 @@ public class TreeRecursionApplication {
 
 
     public static void main(String[] args) {
-        Node c = new Node();
-        c.value = 14;
-        c.child = null;
-
-        Node b = new Node();
-        b.value = 7;
-        b.child = c;
-
-        Node a = new Node();
-        a.value = 3;
-        a.child = b;
-
-        Node root = new Node();
-        root.value = 1;
-        root.child = a;
-
-        int result = calculateValuesRec(root);
-        System.out.println(calcSum(2));
+//        Node c = new Node();
+//        c.value = 14;
+//        c.child = null;
+//
+//        Node b = new Node();
+//        b.value = 7;
+//        b.child = c;
+//
+//        Node a = new Node();
+//        a.value = 3;
+//        a.child = b;
+//
+//        Node root = new Node();
+//        root.value = 1;
+//        root.child = a;
+//
+//        int result = calculateValuesRec(root);
+//        System.out.println(calcSum(2));
     }
 
     static int calcSum(int n) {
