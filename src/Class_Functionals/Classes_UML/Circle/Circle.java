@@ -21,7 +21,7 @@ public class Circle {
         return color;
     }
     public void setRadius(double radius) {
-        this.radius = radius;
+        //this.radius = radius;
     }
 
     public void setColor(String color) {
