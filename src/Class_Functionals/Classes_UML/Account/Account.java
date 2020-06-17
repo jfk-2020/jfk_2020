@@ -1,4 +1,4 @@
-package Class_Functionals.Classes_UML;
+package Class_Functionals.Classes_UML.Account;
 
 public class Account {
 

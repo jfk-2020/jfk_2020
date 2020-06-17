@@ -1,4 +1,6 @@
-package Class_Functionals.Classes_UML;
+package Class_Functionals.Classes_UML.Account;
+
+import Class_Functionals.Classes_UML.Account.Account;
 
 public class test_Account {
     public static void main(String[] args) {
