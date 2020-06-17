@@ -20,12 +20,13 @@ public class Circle {
     public String getColor() {
         return color;
     }
+
     public void setRadius(double radius) {
-        //this.radius = radius;
+        this.radius = radius;
     }
 
     public void setColor(String color) {
-
+        this.color = color;
     }
 
     public String toString() {

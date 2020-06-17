@@ -17,14 +17,17 @@ public class test_Circle {
         System.out.println(object.getColor());
         System.out.println(object_1.getColor());
         System.out.println(object_2.getColor());
+        object.setRadius(2.6);
+        object_1.setRadius(2.7);
+        object_2.setRadius(2.8);
+        object.setColor("orange");
+        object_1.setColor("white");
+        object_2.setColor("grey");
         System.out.println(object.toString());
         System.out.println(object_1.toString());
         System.out.println(object_2.toString());
         System.out.println(object.getArea());
         System.out.println(object_1.getArea());
         System.out.println(object_2.getArea());
-
-        // void-erov sout-@ chgitem vonc anem
-
     }
 }
