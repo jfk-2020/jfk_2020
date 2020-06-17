@@ -3,9 +3,9 @@ package com.jfk.implementClasses;
 public class Account {
 
     //Fields of the account
-    String id;
-    String name;
-    int balance = 0;
+    private String id;
+    private String name;
+    private int balance = 0;
 
     //Creating constructor one
     public Account(String id, String name) {
