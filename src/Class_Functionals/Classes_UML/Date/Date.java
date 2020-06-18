@@ -52,9 +52,23 @@ public class Date {
     }
 
     public String toString() {
-        if (getDay() > 1 && getDay() < 10) {
+        if ((getMonth() >= 1 && getMonth() < 10) && (getDay() >= 1 && getDay() < 10)) {
+            return "0" + getDay() + "/0" + getMonth() + "/" + getYear();
+        }
+        if ((getMonth() >= 1 && getMonth() < 10) && (getDay() >= 10 && getDay() <= 31)) {
+            return getDay() + "/0" + getMonth() + "/" + getYear();
+        }
+        if ((getMonth() >= 10 && getMonth() <= 12) && (getDay() >= 1 && getDay() < 10)) {
             return "0" + getDay() + "/" + getMonth() + "/" + getYear();
         }
         return getDay() + "/" + getMonth() + "/" + getYear();
+    }
+
+
+    public static Date getInstance(int day, int month, int year) {
+        if (day < 1 || day > 31 || month < 1 || month > 12 || year < 1900 || year > 9999) {
+            return null;
+        }
+        return new Date(day, month, year);
     }
 }
