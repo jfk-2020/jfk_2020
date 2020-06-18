@@ -64,6 +64,17 @@ public class Date {
         return getDay() + "/" + getMonth() + "/" + getYear();
     }
 
+//    String Day = "", Month = "";
+//        if (day < 10)
+//    Day += ("0" + day);
+//        else
+//    Day += day;
+//        if (month < 10)
+//    Month += ("0" + month);
+//        else Month += month;
+//
+//        return Day + "/" + Month + "/" + year;
+
 
     public static Date getInstance(int day, int month, int year) {
         if (day < 1 || day > 31 || month < 1 || month > 12 || year < 1900 || year > 9999) {
