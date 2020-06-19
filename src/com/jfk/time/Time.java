@@ -19,6 +19,9 @@ public class Time {
         this.second = s;
     }
 
+    public Time() {
+    }
+
     public Time nextSecond() {
         this.second = this.second + 1;
         if (this.second == 60) {
