@@ -28,10 +28,11 @@ public class Circle_uml {
     }
 
     public void setRadius(double radius) {
-
+this.radius = radius;
     }
 
     public void setCollor(String collor) {
+        this.color = collor;
         System.out.println(collor);
     }
 
