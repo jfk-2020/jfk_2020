@@ -29,4 +29,9 @@ public class Person {
     public Address getAddress() {
         return this.address;
     }
+
+
+    public String toString() {
+        return this.name + " : " + this.age;
+    }
 }
