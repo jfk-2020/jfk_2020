@@ -12,7 +12,7 @@ public final class FinalKeyword {
 
 
     public FinalKeyword(final Time x) {
-        System.out.println(x);
+//        System.out.println(x);
 
     }
 
@@ -28,6 +28,9 @@ public final class FinalKeyword {
         final int y = 20;
         final Time z = new Time(4, 5, 6);
         new FinalKeyword(z);
-        System.out.println(z);
+//        System.out.println(z);
+
+        SuperStudent superStudent = new SuperStudent("Math", 20, 2000.00);
+//        System.out.println(superStudent.getAddress());
     }
 }
