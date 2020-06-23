@@ -5,8 +5,7 @@ public class Staff extends Person {
     private double pay;
 
     public Staff (String name, String address, String school , double pay){
-        super.name = name;
-        super.address = address;
+      super(name, address);
         this.school = school;
         this.pay = pay;
     }
@@ -29,6 +28,6 @@ public class Staff extends Person {
 
     @Override
     public String toString() {
-        return "Student[Person[name=" + name + ", address=" + address + "],school=" + school + ", pay=" + pay +"]";
+        return "Student[Person[name=" + getName() + ", address=" + getAddress() + "],school=" + school + ", pay=" + pay +"]";
     }
 }

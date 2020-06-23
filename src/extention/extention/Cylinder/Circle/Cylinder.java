@@ -1,6 +1,8 @@
-package extendion.Circle.Cylinder;
+package extention.extention.Cylinder.Circle;
 
-public class Cylinder extends Circle{
+import extention.extention.Cylinder.Circle.Circle;
+
+public class Cylinder extends Circle {
     private double height = 1.0;
 
     public Cylinder(){};
