@@ -2,8 +2,8 @@ package extention.extention.Cylinder.Circle;
 
 public class Circle {
 
-    protected double radius = 1.0;
-    protected String color = "red";
+    private double radius = 1.0;
+    private String color = "red";
 
     public Circle(){
     };
