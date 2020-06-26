@@ -43,5 +43,6 @@ abstract class Book {
         this.description = description;
         this.price = price;
     }
+
     public abstract String getType();
 }

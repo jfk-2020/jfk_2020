@@ -1,6 +1,6 @@
 package com.jfk.bookStore;
 
-public class Math extends Book{
+public class Math extends Book {
     public Math(String name, String description, double price) {
         super(name, description, price);
     }
