@@ -4,11 +4,13 @@ public abstract class Book {
     private String name;
     private String description;
     private int price;
+    private BookTypes type;
 
-    public Book(String name, String description, int price) {
+    public Book(String name, String description, int price, BookTypes type) {
         this.name = name;
         this.description = description;
         this.price = price;
+        this.type = type;
     }
 
     public String getName() {
@@ -29,6 +31,10 @@ public abstract class Book {
 
     public int getPrice() {
         return price;
+    }
+
+    public BookTypes getType() {
+        return type;
     }
 
     public void setPrice(int price) {

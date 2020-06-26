@@ -12,4 +12,13 @@ public class BookStore {
     public void remove(Book book) {
         store.remove(book);
     }
+    public List<Book> getBookByType(BookTypes bookTypes) {
+        List<Book> books = new ArrayList<>();
+        for (Book book: books) {
+            if (book.getType() == bookTypes) {
+                books.add(book);
+            }
+        }
+        return books;
+    }
 }
