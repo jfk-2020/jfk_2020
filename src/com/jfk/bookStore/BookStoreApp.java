@@ -2,8 +2,13 @@ package com.jfk.bookStore;
 
 public class BookStoreApp {
 
-    Book[] arrayBooks = new Book[1000];
+    private final Book[] arrayBooks;
     private int index = 0;
+
+    public BookStoreApp(int storeSize) {
+        this.arrayBooks = new Book[storeSize];
+    }
+
 
     //add book
     public void addBook(Book book) {
@@ -17,15 +22,21 @@ public class BookStoreApp {
         index--;
     }
 
+    public Book[] allBooks() {
+        return this.arrayBooks;
+    }
+
     //get books by types
     public Book[] getBooksByType(String type) {
-
         //Create new array
-        Book[] newArrayBooks = new Book[index];
-
+        Book[] newArrayBooks = null;
+        int c = 0;
         for (int i = 0; i < index; i++) {
             if (arrayBooks[i].getType().equals(type)) {
-                newArrayBooks[i] = arrayBooks[i];
+                if (newArrayBooks == null) {
+                    newArrayBooks = new Book[index];
+                }
+                newArrayBooks[c++] = arrayBooks[i];
             }
         }
         return newArrayBooks;
