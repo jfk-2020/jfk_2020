@@ -10,8 +10,8 @@ public enum Gender {
         this.value = value;
     }
 
-    public static Gender getGender(int value){
-        for (int i = 0; i < Gender.values().length; i++){
+    public static Gender getGender(int value) {
+        for (int i = 0; i < Gender.values().length; i++) {
             if (Gender.values()[i].value == value) {
                 return Gender.values()[i];
             }
