@@ -1,42 +1,47 @@
 package enumeration;
 
-public enum  Seasons {
 
-    SPRING (1 , "March , April , May") ,
-    SUMMER (2,"june , July , August"),
-    AUTUMN (3, "September , October , November"),
-    WINTER (4,"December , January , February");
+public enum Seasons {
 
-    private int count;
-    private String monthName ;
+    SPRING(1, new Month[]{Month.April, Month.March, Month.May}),
+    SUMMER(2, new Month[]{Month.June, Month.July, Month.August}),
+    AUTUMN(3, new Month[]{Month.September, Month.October, Month.November}),
+    WINTER(4, new Month[]{Month.December, Month.January, Month.February});
 
-    Seasons ( int count, String monthName ){
-        this.count = count;
-        this.monthName = monthName;
+    private int number;
+    private Month[] months;
+
+    Seasons(int number, Month[] months) {
+        this.number = number;
+        this.months = months;
     }
 
-    public int getCount() {
-        return count;
+    public int getNumber() {
+        return number;
     }
 
-    public String getMonthName() {
-        return monthName;
+    public Month[] getMonths() {
+        return this.months;
     }
 
-    public static Seasons findByMonthsCount(int count){
-        for (int i = 0; i < Seasons.values().length ; i++) {
-            if (Seasons.values()[i].count == count){
+    public static Seasons findSeason(Month month) {
+        for (int i = 0; i < Seasons.values().length; i++) {
+            for (int k = 0; k < Seasons.values()[i].months.length; k++) {
+                if (Seasons.values()[i].months[k] == month) {
+                    return Seasons.values()[i];
+                }
+            }
+        }
+        return null;
+    }
+
+    public static Seasons findByMonthsCount(int count) {
+        for (int i = 0; i < Seasons.values().length; i++) {
+            if (Seasons.values()[i].number == count) {
                 return Seasons.values()[i];
             }
         }
         return null;
     }
 
-    @Override
-    public String toString() {
-        return "Seasons{" +
-                "count=" + count +
-                ", monthName='" + monthName + '\'' +
-                '}';
-    }
 }
