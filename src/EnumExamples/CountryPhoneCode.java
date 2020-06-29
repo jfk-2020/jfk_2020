@@ -2,21 +2,21 @@ package EnumExamples;
 
 public enum CountryPhoneCode {
 
-    Armenia("+374", "AM"),
-    Russia("+7", "RU"),
-    Georgia("+995", "GEO");
+    ArmeniaGY(PhoneCode.Gyumri, "AMGY"),
+    ArmeniaVN(PhoneCode.Vanadzor, "AMVN"),
+    ArmeniaYR(PhoneCode.Yerevan, "AMYR");
 
-    private String phoneCode;
+    private PhoneCode phoneCode;
     private String countryName;
 
-    private CountryPhoneCode(String phoneCode, String countryName) {
+    private CountryPhoneCode(PhoneCode phoneCode, String countryName) {
         this.phoneCode = phoneCode;
         this.countryName = countryName;
     }
 
-    public static CountryPhoneCode findByPhoneCode(String phoneCode) {
+    public static CountryPhoneCode findByCountryName(String countryName) {
         for (int i = 0; i < CountryPhoneCode.values().length; i++) {
-            if (CountryPhoneCode.values()[i].phoneCode == phoneCode) {
+            if (CountryPhoneCode.values()[i].countryName == countryName) {
                 return CountryPhoneCode.values()[i];
             }
         }
