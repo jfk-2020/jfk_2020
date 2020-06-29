@@ -39,15 +39,54 @@ public class BookStore {
     }
 
     public double priceSummary(BookType bookType) {
-        //implement this
-        return -1;
+        Book[] books = findAllByType(bookType);
+        if (books == null) return -1;
+        double summary = 0.0;
+        for (int i = 0; i < books.length; i++) {
+            if (books[i] != null) {
+                summary = summary + books[i].price();
+            } else {
+                break;
+            }
+        }
+        return summary;
     }
 
     public int bookCount(BookType type) {
-        //implement this
-        return -1;
+        Book[] books = findAllByType(type);
+        if (books == null) return -1;
+        int c = 0;
+        for (int i = 0; i < books.length; i++) {
+            if (books[i] != null) {
+                c++;
+            } else {
+                break;
+            }
+        }
+        return c;
     }
 
+
+    boolean containsBookByName(String bookName) {
+        //implement this
+        return false;
+    }
+
+    public Book[] booksInPriceRange(double from, double to) {
+        return null;
+    }
+
+    public Book[] booksLessThan(double price) {
+        return null;
+    }
+
+    public Book[] booksGreaterThan(double price) {
+        return null;
+    }
+
+    public boolean removeBookByName(String bookName) {
+        return false;
+    }
 
     public Book[] findAllByType(BookType type) {
         for (int i = 0; i < this.stores.length; i++) {

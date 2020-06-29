@@ -28,8 +28,10 @@ public class BookStoreApplication {
         //Add missing book type
         BookStore store = new BookStore(10);
         store.addBook(new Dictionary("Dictionary", "Dictionary book", 100));
-        store.addBook(new Dictionary("Dictionary 1", "Dictionary 1 book", 100));
+        store.addBook(new Dictionary("Dictionary 1", "Dictionary 1 book", 200));
         store.addBook(new MathBook("Math", "Math book", 112));
         System.out.println(Arrays.toString(store.findAllByType(BookType.DICTIONARY)));
+        double priceSummary = store.priceSummary(BookType.DICTIONARY);
+        System.out.println(priceSummary);
     }
 }
