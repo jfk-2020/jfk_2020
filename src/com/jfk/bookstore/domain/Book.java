@@ -28,6 +28,10 @@ public abstract class Book {
         this.barCode = barCode;
     }
 
+    public double price() {
+        return this.price;
+    }
+
     @Override
     public String toString() {
         return "Book{" +
