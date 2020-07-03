@@ -3,10 +3,6 @@ package com.jfk.bookstore;
 import com.jfk.bookstore.domain.Book;
 import com.jfk.bookstore.domain.BookType;
 
-/**
- * @author William Arustamyan
- */
-
 public class BookStore {
 
     private final TypeStore[] stores;
@@ -29,13 +25,26 @@ public class BookStore {
     }
 
     public double maxPrice(BookType bookType) {
-        //implement
-        return -1;
+        Book[] books = findAllByType(bookType);
+        if (books == null) return -1;
+        double max = 0.0;
+        for (int i = 0; i < bookCount(bookType); i++) {
+            if (max <= books[i].price()) {
+                max = books[i].price();
+            }
+        }
+        return max;
     }
 
     public double priceSummary() {
-        //implement this
-        return -1;
+        double sum = 0;
+        for (int i = 0; i < BookType.values().length; i++) {
+            double x = priceSummary(BookType.values()[i]);
+            if (x != -1) {
+                sum += x;
+            }
+        }
+        return sum;
     }
 
     public double priceSummary(BookType bookType) {
@@ -52,8 +61,8 @@ public class BookStore {
         return summary;
     }
 
-    public int bookCount(BookType type) {
-        Book[] books = findAllByType(type);
+    public int bookCount(BookType bookType) {
+        Book[] books = findAllByType(bookType);
         if (books == null) return -1;
         int c = 0;
         for (int i = 0; i < books.length; i++) {
@@ -66,14 +75,28 @@ public class BookStore {
         return c;
     }
 
-
     boolean containsBookByName(String bookName) {
-        //implement this
+        for (int i = 0; i < stores.length; i++) {
+            if (stores[i].getBooks() != null) {
+                for (int j = 0; j < bookCount(stores[i].getType()); j++) {
+                    if (stores[i].getBooks()[j].getName().contains(bookName)) {
+                        return true;
+                    }
+                }
+            }
+        }
         return false;
     }
 
-    public Book[] booksInPriceRange(double from, double to) {
-        return null;
+    public double booksInPriceRange(double from, double to) {
+        for(int i = 0; i < stores.length; i++){
+            for(int k = 0; k < bookCount(stores[i].getType()); k++){
+                if (stores[i].getBooks()[k].price() <= stores.length){
+
+                }
+            }
+        }
+        return from;
     }
 
     public Book[] booksLessThan(double price) {

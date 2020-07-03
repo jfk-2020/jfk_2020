@@ -1,13 +1,8 @@
 package com.jfk.bookstore.domain;
 
-/**
- * @author William Arustamyan
- */
-
 public abstract class Book {
 
     protected String barCode;
-
     protected String name;
     protected String description;
     protected double price;
@@ -30,6 +25,14 @@ public abstract class Book {
 
     public double price() {
         return this.price;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override

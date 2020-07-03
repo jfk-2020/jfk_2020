@@ -3,10 +3,6 @@ package com.jfk.bookstore;
 import com.jfk.bookstore.domain.Book;
 import com.jfk.bookstore.domain.BookType;
 
-/**
- * @author William Arustamyan
- */
-
 public class TypeStore {
 
     private final BookType type;

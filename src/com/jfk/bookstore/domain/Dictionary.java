@@ -1,9 +1,5 @@
 package com.jfk.bookstore.domain;
 
-/**
- * @author William Arustamyan
- */
-
 public class Dictionary extends Book {
 
     public Dictionary(String name, String description, double price) {
@@ -14,4 +10,5 @@ public class Dictionary extends Book {
     public BookType type() {
         return BookType.DICTIONARY;
     }
+
 }

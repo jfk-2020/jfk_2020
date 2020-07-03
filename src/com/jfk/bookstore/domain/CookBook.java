@@ -1,9 +1,5 @@
 package com.jfk.bookstore.domain;
 
-/**
- * @author William Arustamyan
- */
-
 public class CookBook extends Book {
 
     public CookBook(String name, String description, double price) {
@@ -14,4 +10,5 @@ public class CookBook extends Book {
     public BookType type() {
         return BookType.COOKBOOK;
     }
+
 }
