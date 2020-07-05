@@ -6,6 +6,7 @@ import com.jfk.bookstore.domain.BookType;
 public class BookStore {
 
     private final TypeStore[] stores;
+    private int bookNumber;
 
     public BookStore(int size) {
         this.stores = new TypeStore[BookType.values().length];
@@ -88,27 +89,76 @@ public class BookStore {
         return false;
     }
 
-    public double booksInPriceRange(double from, double to) {
-        for(int i = 0; i < stores.length; i++){
-            for(int k = 0; k < bookCount(stores[i].getType()); k++){
-                if (stores[i].getBooks()[k].price() <= stores.length){
-
+    public Book[] booksInPriceRange(double from, double to) {
+        int index = 0;
+        Book[] books = new Book[allBooksCount()];
+        for (int i = 0; i < stores.length; i++) {
+            for (int k = 0; k < bookCount(stores[i].getType()); k++) {
+                if (stores[i].getBooks()[k].price() <= to && stores[i].getBooks()[k].price() >= from) {
+                    books[index] = stores[i].getBooks()[k];
+                    index++;
                 }
             }
         }
-        return from;
+        return books;
     }
 
+    public int allBooksCount() {
+        int count = 0;
+        for (int i = 0; i < stores.length; i++) {
+            count += bookCount(stores[i].getType());
+        }
+        return count;
+    }
+
+
     public Book[] booksLessThan(double price) {
-        return null;
+        int index = 0;
+        Book[] books = new Book[allBooksCount()];
+        for (int i = 0; i < stores.length; i++) {
+            for (int k = 0; k < bookCount(stores[i].getType()); k++) {
+                if (stores[i].getBooks()[k].price() < price) {
+                    books[index] = stores[i].getBooks()[k];
+                    index++;
+                }
+            }
+        }
+        return books;
     }
 
     public Book[] booksGreaterThan(double price) {
-        return null;
+        int index = 0;
+        Book[] books = new Book[allBooksCount()];
+        for (int i = 0; i < stores.length; i++) {
+            for (int k = 0; k < bookCount(stores[i].getType()); k++) {
+                if (stores[i].getBooks()[k].price() > price) {
+                    books[index] = stores[i].getBooks()[k];
+                    index++;
+                }
+            }
+        }
+        return books;
     }
 
     public boolean removeBookByName(String bookName) {
-        return false;
+        boolean hasRemoved = false;
+        for (int i = 0; i < this.stores.length; i++) {
+            for (int k = 0; k < this.stores[i].getCurrentIndex(); k++) {
+                if (this.stores[i].getBooks()[k].getName().equals(bookName)) {
+                    for (int y = k; y < this.stores[i].getBooks().length - 1; y++) {
+                        if (this.stores[i].getBooks()[y + 1] != null) {
+                            this.stores[i].getBooks()[y] = this.stores[i].getBooks()[y + 1];
+                        }
+                    }
+                    hasRemoved = true;
+                    this.bookNumber--;
+                    this.stores[i].decrement();
+
+                }
+
+            }
+        }
+        return hasRemoved;
     }
 
     public Book[] findAllByType(BookType type) {

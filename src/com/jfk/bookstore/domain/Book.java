@@ -2,7 +2,6 @@ package com.jfk.bookstore.domain;
 
 public abstract class Book {
 
-    protected String barCode;
     protected String name;
     protected String description;
     protected double price;
@@ -14,14 +13,6 @@ public abstract class Book {
     }
 
     public abstract BookType type();
-
-    public String getBarCode() {
-        return this.barCode;
-    }
-
-    public void setBarCode(String barCode) {
-        this.barCode = barCode;
-    }
 
     public double price() {
         return this.price;
@@ -38,7 +29,6 @@ public abstract class Book {
     @Override
     public String toString() {
         return "Book{" +
-                "barCode='" + barCode + '\'' +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +

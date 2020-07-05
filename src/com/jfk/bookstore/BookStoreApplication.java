@@ -1,9 +1,8 @@
 package com.jfk.bookstore;
 
-import com.jfk.bookstore.domain.BookType;
-import com.jfk.bookstore.domain.Dictionary;
-import com.jfk.bookstore.domain.MathBook;
-import com.jfk.bookstore.domain.CookBook;
+import com.jfk.bookstore.domain.*;
+
+import java.util.Arrays;
 
 public class BookStoreApplication {
 
@@ -22,13 +21,27 @@ public class BookStoreApplication {
         //System.out.println(Arrays.toString(store.findAllByType(BookType.COOKBOOK)));
         double priceSummary = store.priceSummary(BookType.DICTIONARY);
         System.out.println("The sum of all the books price is: " + priceSummary);
+
         double maxPrice = store.maxPrice(BookType.DICTIONARY);
         System.out.println("The books max price is: " + maxPrice);
+
         double wholePriceSummary = store.priceSummary();
         System.out.println("The sum of the all books is: " + wholePriceSummary);
+
         boolean bookName = store.containsBookByName("Math");
         System.out.println(bookName);
 
+        Book[] booksInPriceRange = store.booksInPriceRange(5.5, 500.5);
+        System.out.println(Arrays.toString(booksInPriceRange));
+
+        Book[] booksLessThan = store.booksLessThan(30.5);
+        System.out.println(Arrays.toString(booksLessThan));
+
+        Book[] booksGreaterThan = store.booksGreaterThan(15.5);
+        System.out.println(Arrays.toString(booksGreaterThan));
+
+        boolean removeBookByName = store.removeBookByName("Dictionary 1");
+        System.out.println("This book has been removed: " + removeBookByName);
 
     }
 }
