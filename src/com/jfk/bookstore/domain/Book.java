@@ -24,6 +24,10 @@ public abstract class Book {
         return this.barCode;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public void setBarCode(String barCode) {
         this.barCode = barCode;
     }
