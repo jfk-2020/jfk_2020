@@ -13,6 +13,9 @@ public abstract class Book {
         this.type = type;
     }
 
+    public Book(String name, String description, int price) {
+    }
+
     public String getName() {
         return name;
     }
