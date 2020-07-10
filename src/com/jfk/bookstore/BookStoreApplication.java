@@ -1,5 +1,6 @@
 package com.jfk.bookstore;
 
+import com.jfk.bookstore.domain.Book;
 import com.jfk.bookstore.domain.BookType;
 import com.jfk.bookstore.domain.Dictionary;
 import com.jfk.bookstore.domain.MathBook;
@@ -27,11 +28,14 @@ public class BookStoreApplication {
 
         //Add missing book type
         BookStore store = new BookStore(10);
-        store.addBook(new Dictionary("Dictionary", "Dictionary book", 100));
-        store.addBook(new Dictionary("Dictionary 1", "Dictionary 1 book", 200));
+        store.addBook(new Dictionary("Dictionary", "Dictionary book", 100, "RUS"));
+        store.addBook(new Dictionary("Dictionary 1", "Dictionary 1 book", 200, "ENG"));
         store.addBook(new MathBook("Math", "Math book", 112));
         System.out.println(Arrays.toString(store.findAllByType(BookType.DICTIONARY)));
         double priceSummary = store.priceSummary(BookType.DICTIONARY);
         System.out.println(priceSummary);
+        Book[] allByType = store.findAllByType(BookType.DICTIONARY);
+
+
     }
 }
