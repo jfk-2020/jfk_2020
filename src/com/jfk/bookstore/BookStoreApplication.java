@@ -1,7 +1,6 @@
 package com.jfk.bookstore;
 
 import com.jfk.bookstore.domain.*;
-
 import java.util.Arrays;
 
 public class BookStoreApplication {
@@ -9,13 +8,19 @@ public class BookStoreApplication {
     public static void main(String[] args) {
 
         BookStore store = new BookStore(10);
-        store.addBook(new Dictionary("Dictionary", "Dictionary book", 100));
-        store.addBook(new Dictionary("Dictionary 1", "Dictionary 1 book", 200));
-        store.addBook(new MathBook("Math", "Math book", 15.2));
-        store.addBook(new MathBook("Math1", "Math book1", 20.3));
-        store.addBook(new MathBook("Math2", "Math book2", 30.5));
-        store.addBook(new CookBook("Armenian Cuisine", "Armenian traditional meals", 15));
-        store.addBook(new CookBook("Georgian Cuisine", "Georgian traditional meals", 20));
+        store.addBook(new Dictionary("Dictionary", "Dictionary book", 100, "123"));
+        store.addBook(new Dictionary("Dictionary 1", "Dictionary 1 book", 200, "1234"));
+        store.addBook(new MathBook("Math", "Math book", 15.2, "12345"));
+        store.addBook(new MathBook("Math1", "Math book1", 20.3, "123456"));
+        store.addBook(new MathBook("Math2", "Math book2", 30.5, "1234567"));
+        store.addBook(new MathBook("Math2", "Math book2", 30.5, "1234567"));
+        store.addBook(new MathBook("Math2", "Math book2", 30.5, "1234567"));
+        store.addBook(new MathBook("Math2", "Math book2", 30.5, "1234567"));
+        store.addBook(new MathBook("Math2", "Math book2", 30.5, "1234567"));
+        store.addBook(new MathBook("Math2", "Math book2", 30.5, "1234567"));
+        store.addBook(new MathBook("Math2", "Math book2", 30.5, "1234567"));
+        store.addBook(new CookBook("Armenian Cuisine", "Armenian traditional meals", 15, "12345678"));
+        store.addBook(new CookBook("Georgian Cuisine", "Georgian traditional meals", 20, "123456789"));
 
         //System.out.println(Arrays.toString(store.findAllByType(BookType.DICTIONARY)));
         //System.out.println(Arrays.toString(store.findAllByType(BookType.COOKBOOK)));
@@ -43,5 +48,20 @@ public class BookStoreApplication {
         boolean removeBookByName = store.removeBookByName("Dictionary 1");
         System.out.println("This book has been removed: " + removeBookByName);
 
+        //Checking if there is a book with the given bar code
+        boolean hasBookWithBarCode = store.hasBookWithBarCode("12");
+        if (hasBookWithBarCode) {
+            System.out.println(store.findBookByBarCode("12").getName());
+        } else {
+            System.out.println("Not found 12");
+        }
+
+        //Check if the bookstore is full
+        try{
+            store.addBook(new MathBook("Math2", "Math book2", 30.5, "1234567"));
+            store.addBook(new MathBook("Math2", "Math book2", 30.5, "1234567"));
+        }catch (Exception e){
+            System.out.println("BookStore is Full");
+        }
     }
 }

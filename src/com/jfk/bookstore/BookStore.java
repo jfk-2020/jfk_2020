@@ -2,6 +2,7 @@ package com.jfk.bookstore;
 
 import com.jfk.bookstore.domain.Book;
 import com.jfk.bookstore.domain.BookType;
+import com.jfk.bookstore.exceptions.unchecked.*;
 
 public class BookStore {
 
@@ -19,8 +20,12 @@ public class BookStore {
         BookType type = book.type();
         for (int i = 0; i < this.stores.length; i++) {
             if (this.stores[i].getType() == type) {
-                this.stores[i].getBooks()[this.stores[i].getCurrentIndex()] = book;
-                this.stores[i].increment();
+                if (this.stores[i].getCurrentIndex() < this.stores[i].getBooks().length) {
+                    this.stores[i].getBooks()[this.stores[i].getCurrentIndex()] = book;
+                    this.stores[i].increment();
+                } else {
+                    throw new BookStoreIsFullException("Book store is full");
+                }
             }
         }
     }
@@ -88,6 +93,31 @@ public class BookStore {
         }
         return false;
     }
+
+    boolean hasBookWithBarCode(String barCode) {
+        for (int i = 0; i < stores.length; i++) {
+            if (stores[i].getBooks() != null) {
+                for (int k = 0; k < bookCount(stores[i].getType()); k++){
+                     if(stores[i].getBooks()[k].getBarCode().equals(barCode)){
+                         return true;
+                     }
+                }
+            }
+        }
+        return false;
+    }
+
+    public Book findBookByBarCode(String barCode) {
+        for (int i = 0; i < this.stores.length; i++) {
+            for (int k = 0; k < stores[i].getCurrentIndex(); k++) {
+                if (stores[i].getBooks()[k].getBarCode().equals(barCode)) {
+                    return stores[i].getBooks()[k];
+                }
+            }
+        }
+        throw new BookNotFoundException("Book with " + barCode + "barcode not found.");
+    }
+
 
     public Book[] booksInPriceRange(double from, double to) {
         int index = 0;

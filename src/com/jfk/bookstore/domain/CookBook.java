@@ -2,8 +2,8 @@ package com.jfk.bookstore.domain;
 
 public class CookBook extends Book {
 
-    public CookBook(String name, String description, double price) {
-        super(name, description, price);
+    public CookBook(String name, String description, double price, String barCode) {
+        super(name, description, price, barCode);
     }
 
     @Override
