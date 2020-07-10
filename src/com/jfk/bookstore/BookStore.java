@@ -22,7 +22,7 @@ public class BookStore {
     public void addBook(Book book) {
         BookType type = book.type();
         for (int i = 0; i < this.stores.length; i++) {
-            if (this.stores[i].getType() == null){
+            if (this.stores[i].getType() == null) {
                 throw new BookNotFoundException("BOOK NOT FOUND");
             }
             if (this.stores[i].getType() == type) {
@@ -134,7 +134,7 @@ public class BookStore {
         return books;
     }
 
-    public  Book[] booksGreaterThan(double price) {
+    public Book[] booksGreaterThan(double price) {
         int index = 0;
         Book[] books = new Book[allBooksCount()];
         for (int i = 0; i < stores.length; i++) {
@@ -170,14 +170,15 @@ public class BookStore {
     }
 
     public Book[] findAllByType(BookType type) {
+        Book[] foundBooks = null;
         for (int i = 0; i < this.stores.length; i++) {
-//            if (this.stores[i].getType() != type) {
-//                throw new UnknownBookTypeException("UNKNOWN/WRONG BOOK TYPE");
-//            }
             if (this.stores[i].getType() == type) {
-                return this.stores[i].getBooks();
+                foundBooks = this.stores[i].getBooks();
             }
         }
-        return null;
+        if (foundBooks == null) {
+            throw new UnknownBookTypeException("UNKNOWN/WRONG BOOK TYPE");
+        }
+        return foundBooks;
     }
 }

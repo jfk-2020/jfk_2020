@@ -1,6 +1,5 @@
 package Class_Functionals.Classes_UML.Circle_Simplified;
 
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
 
 public class test_Circle_Simplified {
     public static void main(String[] args) {
