@@ -12,4 +12,11 @@ public class DataHolder<T> {
     public void setData(T data) {
         this.data = data;
     }
+
+    //FileInputStream
+    //FileOutputStream
+    //FileReader
+    //BufferedOutputStream
+    //Create class to provide functionality save file with specific name and extension.
+    //And add ability to read file as String and display content
 }
