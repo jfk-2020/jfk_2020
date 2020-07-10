@@ -25,7 +25,7 @@ public class BookStoreApplication {
 
         //Add missing book type
         BookStore store = new BookStore(20);
-//        store.addBook(new Dictionary("Dictionary", "Dictionary book", 100));
+        store.addBook(new Dictionary("Dictionary", "Dictionary book", 100));
 //        store.addBook(new Dictionary("Dictionary 1", "Dictionary 1 book", 200));
 //        store.addBook(new MathBook("Math", "Math book", 112));
 //        store.addBook(new MathBook("Math1", "Math book1", 99.99));

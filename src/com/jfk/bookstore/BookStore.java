@@ -1,10 +1,7 @@
 package com.jfk.bookstore;
 
-import com.jfk.Calculator.InvalidOperationException;
 import com.jfk.bookstore.domain.Book;
 import com.jfk.bookstore.domain.BookType;
-
-import java.io.IOException;
 
 /**
  * @author William Arustamyan
@@ -25,6 +22,9 @@ public class BookStore {
     public void addBook(Book book) {
         BookType type = book.type();
         for (int i = 0; i < this.stores.length; i++) {
+            if (this.stores[i].getType() == null){
+                throw new BookNotFoundException("BOOK NOT FOUND");
+            }
             if (this.stores[i].getType() == type) {
                 this.stores[i].getBooks()[this.stores[i].getCurrentIndex()] = book;
                 this.stores[i].increment();
@@ -171,9 +171,9 @@ public class BookStore {
 
     public Book[] findAllByType(BookType type) {
         for (int i = 0; i < this.stores.length; i++) {
-            if (this.stores[i].getType() != type) {
-                throw new UnknownBookTypeException("UNKNOWN/WRONG BOOK TYPE");
-            }
+//            if (this.stores[i].getType() != type) {
+//                throw new UnknownBookTypeException("UNKNOWN/WRONG BOOK TYPE");
+//            }
             if (this.stores[i].getType() == type) {
                 return this.stores[i].getBooks();
             }
