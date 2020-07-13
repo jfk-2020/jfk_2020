@@ -1,7 +1,6 @@
 package com.jfk.homeworkEnum;
 
-import com.jfk.bookstore.domain.MathBook;
-import com.jfk.homeworkEnum.exceptions.*;
+import com.jfk.homeworkEnum.exceptions.PhoneNumberNotFoundException;
 
 public enum PhoneCode {
     ARMENIA("ARM", "55"),
@@ -16,7 +15,7 @@ public enum PhoneCode {
         this.phoneCode = phoneCode;
     }
 
-    public static PhoneCode findByPhoneCode(String phoneCode) throws PhoneNumberNotFoundException {
+    public static PhoneCode findByPhoneCode(String phoneCode) {
         for (int i = 0; i < PhoneCode.values().length; i++) {
             if (PhoneCode.values()[i].phoneCode.equals(phoneCode)) {
                 return PhoneCode.values()[i];

@@ -1,9 +1,7 @@
 package com.jfk.homeworkEnum;
 
-import com.jfk.homeworkEnum.exceptions.PhoneNumberNotFoundException;
-
 public class MainPhoneCode {
-    public static void main(String[] args) throws PhoneNumberNotFoundException {
+    public static void main(String[] args) {
         PhoneCode countryPhoneCode = PhoneCode.findByPhoneCode("+375");
         if (countryPhoneCode == null) {
             System.out.println("Country code is not found");
