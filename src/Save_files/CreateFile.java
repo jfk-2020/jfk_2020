@@ -7,7 +7,7 @@ public class CreateFile {
 
     public static void main(String[] args) {
 
-        File file = new File("C:\\Users\\spetrosyan\\Desktop\\javaprogram.txt"); //initialize File object and passing path as argument
+        File file = new File("test_file.txt"); //initialize File object and passing path as argument
         boolean result;
         try {
             result = file.createNewFile();  //creates a new file
