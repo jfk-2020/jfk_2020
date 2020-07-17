@@ -2,10 +2,10 @@ package com.jfk.homeworkGenerics;
 
 
 public class ArrayListGenerics<T> {
-    private T[] newArray;
+    private final Object[] newArray;
 
     public ArrayListGenerics(int size) {
-        this.newArray = (T[]) new Object[size];
+        this.newArray = new Object[size];
     }
 
     public ArrayListGenerics() {
@@ -13,7 +13,7 @@ public class ArrayListGenerics<T> {
     }
 
     public T getByIndex(int index) {
-        return this.newArray[index];
+        return (T) this.newArray[index];
     }
 
 }
