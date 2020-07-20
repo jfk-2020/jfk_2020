@@ -1,0 +1,19 @@
+package com.jfk.lesson07.Tasks516_595;
+
+import com.jfk.lesson07.MatrixGenerator;
+
+public class Task523 {
+    public static void main(String[] args) {
+        int M = 4;
+        int N = 5;
+        int[][] x = MatrixGenerator.generateAsRandom(M, N);
+        MatrixGenerator.display(x);
+        System.out.println("--------------------------------");
+        for (int i = 1; i < M; i += 2) {
+            for (int j = 0; j < N; j++) {
+                System.out.print(x[i][j] + "  ");
+            }
+            System.out.println();
+        }
+    }
+}
