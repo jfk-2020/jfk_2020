@@ -1,14 +1,11 @@
 package com.jfk.lesson23Generics;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.*;
 
-public class ArrayListOwn <T> implements List<T> {
+public class ArrayListOwn <T> implements List<T>, Iterable<T> {
     private int size = 0;
     private Object[] array = new Object[10];
-
+    List<Integer> l = new ArrayList<>();
     @Override
     public boolean add(T t) {
         if (size >= array.length) {
@@ -53,9 +50,25 @@ public class ArrayListOwn <T> implements List<T> {
 
     @Override
     public Iterator<T> iterator() {
-        return null;
+        return new IteratorImpl();
     }
 
+    private class IteratorImpl implements Iterator<T> {
+        int cursor;
+        @Override
+        public boolean hasNext() {
+            return (cursor != size);
+        }
+
+        @Override
+        public T next() {
+            if (cursor >= size) {
+                throw new NoSuchElementException();
+            } else {
+                return (T) array[cursor++];
+            }
+        }
+    }
     @Override
     public Object[] toArray() {
         Object[] arraytemp = new Object[size];
@@ -173,5 +186,8 @@ public class ArrayListOwn <T> implements List<T> {
         arrayListOwn.add("Hi");
         arrayListOwn.add("Barev");
         System.out.println(arrayListOwn.get(2));
+        for (String s : arrayListOwn){
+            System.out.println(s);
+        }
     }
 }
