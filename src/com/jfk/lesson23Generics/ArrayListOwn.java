@@ -22,9 +22,9 @@ public class ArrayListOwn <T> implements List<T>, Iterable<T> {
     @Override
     public T get(int index) {
         if (index >= size) {
-            throw new NullPointerException();
+            throw new ArrayIndexOutOfBoundsException();
         } else {
-            return (T) array[size - 1];
+            return (T) array[index - 1];
         }
     }
 
@@ -181,7 +181,7 @@ public class ArrayListOwn <T> implements List<T>, Iterable<T> {
     }
 
     public static void main(String[] args) {
-        ArrayListOwn<String> arrayListOwn = new ArrayListOwn<>();
+        List<String> arrayListOwn = new ArrayListOwn<>();
         arrayListOwn.add("Hello");
         arrayListOwn.add("Hi");
         arrayListOwn.add("Barev");
