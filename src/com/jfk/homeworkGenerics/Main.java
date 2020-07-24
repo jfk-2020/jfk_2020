@@ -15,15 +15,15 @@ public class Main {
         }
 
         public fav1 getFav1() {
-            return (this.favorite1);
+            return this.favorite1;
         }
 
         public fav2 getFav2() {
-            return (this.favorite2);
+            return this.favorite2;
         }
 
         public fav3 getFav3() {
-            return (this.favorite3);
+            return this.favorite3;
         }
     }
 
@@ -31,7 +31,7 @@ public class Main {
 
         ArrayList<String> r = new ArrayList<>();
 
-        FavoriteClasses<String, Integer, String> favoriteClasses = new FavoriteClasses("Hello", 67, r.get(0));
+        FavoriteClasses<String, Integer, String> favoriteClasses = new FavoriteClasses<>("Hello", 67, r.get(0));
 
     }
 }
