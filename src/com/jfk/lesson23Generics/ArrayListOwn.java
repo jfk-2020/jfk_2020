@@ -5,7 +5,7 @@ import java.util.*;
 public class ArrayListOwn <T> implements List<T>, Iterable<T> {
     private int size = 0;
     private Object[] array = new Object[10];
-    List<Integer> l = new ArrayList<>();
+
     @Override
     public boolean add(T t) {
         if (size >= array.length) {
