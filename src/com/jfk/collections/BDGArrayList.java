@@ -69,18 +69,16 @@ public class BDGArrayList<E> implements Collection<E> {
 
     @Override
     public boolean remove(Object o) {
-        int index = 0;
+        int index = -1;
         for (int i = 0; i < size; i++) {
             if (data[i].equals(o)) {
-                E[] newArray = (E[]) new Object[data.length + -1];
-                for (int j = 0, k = 0; j < data.length; j++) {
-                    if (i == index) {
-                        continue;
-                    }
-                    newArray[k++] = data[j];
-                }
-                return true;
+                index = i;
+                break;
             }
+        }
+        if (index != -1) {
+            System.arraycopy(data, index + 1, data, index, data.length - index);
+            return true;
         }
         return false;
     }
