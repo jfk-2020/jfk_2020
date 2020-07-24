@@ -20,26 +20,28 @@ public class BDGArrayList<E> implements Collection<E> {
     }
 
     public BDGArrayList(int minCapacity) {
-        if (minCapacity > 0)
+        if (minCapacity > 0) {
             this.minCapacity = minCapacity;
-        elements = new Object[minCapacity];
+        }
+        elements = new Object[this.minCapacity];
         currentIndex = 0;
     }
 
     @Override
     public int size() {
-
         return currentIndex;
     }
 
     @Override
     public boolean isEmpty() {
-
         return currentIndex == 0;
     }
 
     @Override
     public boolean contains(Object o) {
+        if (o == null) {
+            return false;
+        }
         for (int i = 0; i < elements.length; i++) {
             Object ob = elements[i];
             if (o.equals(ob))
@@ -88,13 +90,16 @@ public class BDGArrayList<E> implements Collection<E> {
     @Override
     public boolean remove(Object o) {
         if (o != null) {
-            if (contains(o)) {
-                for (int i = 0; i < elements.length; i++) {
-                    if (elements[i].equals(o)) {
-                        remove(i);
-                        return true;
-                    }
+            int index = -1;
+            for (int i = 0; i < elements.length; i++) {
+                if (elements[i].equals(o)) {
+                    index = i;
+                    break;
                 }
+            }
+            if (index != -1) {
+                System.arraycopy(elements, index + 1, elements, index, elements.length - index);
+                this.currentIndex--;
             }
 
         }
