@@ -1,5 +1,6 @@
 package com.jfk.collections;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 
@@ -38,20 +39,19 @@ public class BDGArrayList<E> implements Collection<E> {
 
     @Override
     public Iterator<E> iterator() {
-        return null;
+        return new ImplementIterator();
     }
 
     public class ImplementIterator implements Iterator<E> {
-        private Object[] array = new Object[10];
         int cursor; // index of the next element to return
 
         @Override
         public boolean hasNext() {
-            return cursor < size && array[cursor] != null;
+            return cursor < size;
         }
 
         public E next() {
-            return (E) array[cursor++];
+            return data[cursor++];
         }
 
         @Override
@@ -77,10 +77,10 @@ public class BDGArrayList<E> implements Collection<E> {
         if (size >= data.length) {
             E[] finalArray = (E[]) new Object[data.length + 30];
             System.arraycopy(data, 0, finalArray, 0, data.length);
-            finalArray[++size] = e;
+            finalArray[size++] = e;
             data = finalArray;
         } else {
-            data[++size] = e;
+            data[size++] = e;
         }
         return true;
     }
@@ -124,5 +124,22 @@ public class BDGArrayList<E> implements Collection<E> {
     @Override
     public void clear() {
 
+    }
+
+    public String toString() {
+        return Arrays.toString(data);
+    }
+
+    public static void main(String[] args) {
+        Collection<Integer> integers = new BDGArrayList<>();
+        integers.add(10);
+        integers.add(20);
+        integers.add(30);
+
+        for (Integer i : integers) {
+            System.out.println(i);
+        }
+
+        System.out.println(integers);
     }
 }
