@@ -52,7 +52,7 @@ public class BDGArrayList<E> implements Collection<E> {
 
     @Override
     public Iterator<E> iterator() {
-        Iterator<E> iterator = new Iterator<E>() {
+        return new Iterator<>() {
             private int index = 0;
 
             @Override
@@ -65,7 +65,6 @@ public class BDGArrayList<E> implements Collection<E> {
                 return (E) elements[index++];
             }
         };
-        return iterator;
     }
 
 
