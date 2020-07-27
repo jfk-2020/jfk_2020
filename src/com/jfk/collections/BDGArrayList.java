@@ -6,7 +6,7 @@ import java.util.Iterator;
 public class BDGArrayList<E> implements Collection<E> {
 
     private E data[];
-    private int size = 0;
+    private static int size = 0;
 
     public BDGArrayList(int size) {
         this.data = (E[]) new Object[size];
@@ -38,8 +38,26 @@ public class BDGArrayList<E> implements Collection<E> {
 
     @Override
     public Iterator<E> iterator() {
-        //do not implement this
         return null;
+    }
+
+    public class ImplementIterator implements Iterator<E> {
+        private Object[] array = new Object[10];
+        int cursor; // index of the next element to return
+
+        @Override
+        public boolean hasNext() {
+            return cursor < size && array[cursor] != null;
+        }
+
+        public E next() {
+            return (E) array[cursor++];
+        }
+
+        @Override
+        public void remove() {
+            throw new UnsupportedOperationException();
+        }
     }
 
     @Override
