@@ -1,63 +1,39 @@
 package collections;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
-import java.util.List;
 
 public class BDGArrayList<E> implements Collection<E> {
+    private int index ;
+    private Object [] arrayObject = new Object[20];
+    public BDGArrayList(int index , Object [] arrayObject ){
+        this.arrayObject =arrayObject;
 
-    public static void main(String[] args) {
-        List<Integer> newList = new ArrayList<>();
-        newList.add(2);
-        newList.add(3);
-        newList.add(4);
-        newList.add(1);
-        newList.add(5);
-        newList.add(2);
+    };
 
-        System.out.println(newList.toString());
-
-        System.out.println(newList.size());
-        System.out.println(newList.isEmpty());
-
-        List<Integer> checkingList = new ArrayList<>();
-        checkingList.add(2);
-        checkingList.add(3);
-
-        System.out.println(newList.contains(3));
-
-        newList.remove(3);
-        System.out.println("after remove "+ newList.toString());
-
-        newList.addAll(checkingList);
-        System.out.println("after adding "+ newList.toString());
-
-        newList.removeAll(checkingList);
-        System.out.println("after remove "+ newList.toString());
-
-        System.out.println(newList.containsAll(checkingList));
-
-        System.out.println(newList.retainAll(checkingList));
-
-        newList.clear();
-        System.out.println("after clear "+ newList.toString());
+    public BDGArrayList() {
     }
+
+
     @Override
     public int size() {
-        //is done
-        return size();
+        return index;
     }
 
     @Override
     public boolean isEmpty() {
-        //is done
+        for (int i = 0; i <arrayObject.length ; i++) {
+            if (arrayObject[i] == null){return true;}
+        }
         return false;
     }
 
     @Override
     public boolean contains(Object o) {
-       // is done
+        for (int i = 0; i < arrayObject.length ; i++) {
+            if (arrayObject[i]!= null){
+            if (arrayObject[i].equals(o)){return true;}
+        }else {return false;}}
         return false;
     }
 
@@ -65,6 +41,22 @@ public class BDGArrayList<E> implements Collection<E> {
     public Iterator<E> iterator() {
         return null;
         //do not implement this
+    }
+    public class MyIterator <E> implements Iterator<Integer> {
+    int index = 0;
+    int result = 0;
+        @Override
+        public boolean hasNext() {
+            if (index<size()){return true;}
+            return false;
+        }
+
+        @Override
+
+        public Integer next() {
+            if (hasNext()){result = (int) arrayObject[index];index++ ; return result;}
+            return null;
+        }
     }
 
     @Override
@@ -75,25 +67,41 @@ public class BDGArrayList<E> implements Collection<E> {
 
     @Override
     public <T> T[] toArray(T[] a) {
+
         return null;
     }
 
     @Override
     public boolean add(E e) {
-      //  is done
+        
+      Object[]newArrayObject = new Object[(int) (arrayObject.length*1.5)];
+        for (int i = arrayObject.length; i <newArrayObject.length ; i++) {
+           newArrayObject[i]=e; return true;
+        }
         return false;
     }
 
     @Override
     public boolean remove(Object o) {
-       // is done
-        return false;
+        if (o==null){return false;}
+        int index = 0;
+        Object []removedArray = new Object[arrayObject.length-1];
+        for (int i = 0; i < arrayObject.length; i++) {
+        if (arrayObject[i].equals(o)){removedArray[i]=arrayObject[i+1+index];index++;}else
+        {removedArray[i]=arrayObject[i+index];}
+        }
+        return true;
     }
 
     @Override
     public boolean containsAll(Collection<?> c) {
-        // is done
-        return false;
+        if (c.size()<=arrayObject.length ){
+            Object[]newObject=c.toArray();
+            for (int i = 0; i <newObject.length ; i++) {
+             if (c.contains(arrayObject[i])){continue;}else{return false;}
+            }
+        }
+        return true;
     }
 
     @Override
