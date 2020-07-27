@@ -52,9 +52,22 @@ public class BDGArrayList<E> implements Collection<E> {
 
     @Override
     public Iterator<E> iterator() {
-        //do not implement this
-        return null;
+        Iterator<E> iterator = new Iterator<E>() {
+            private int index = 0;
+
+            @Override
+            public boolean hasNext() {
+                return index < currentIndex;
+            }
+
+            @Override
+            public E next() {
+                return (E) elements[index++];
+            }
+        };
+        return iterator;
     }
+
 
     @Override
     public Object[] toArray() {
