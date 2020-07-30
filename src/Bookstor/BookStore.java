@@ -132,7 +132,7 @@ public class BookStore {
         return bookInOneType;
     }
 
-    private Book[] allBookInOneArray() {
+    Book[] allBookInOneArray() {
         int index = 0;
         Book[] bookInOneArray = new Book[this.bookNumber];
         for (int i = 0; i < stores.length; i++) {
