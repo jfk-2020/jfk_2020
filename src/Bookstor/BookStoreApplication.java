@@ -21,7 +21,6 @@ public class BookStoreApplication {
         System.out.println(containsByName);
 
         System.out.println(store.bookNumber);
-
         Book[] ints = store.allBookInOneArray();
         for (int i = 0; i < ints.length; i++) {
             System.out.println(ints[i].name);

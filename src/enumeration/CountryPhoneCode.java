@@ -4,14 +4,14 @@ public enum  CountryPhoneCode {
 
 
     EUROPE ("+1","DE" ),
-    AMERICA ("","USA"),
-    AFRICA ("","ALG"),
+    AMERICA ("+","USA"),
+    AFRICA ("AM","ALG"),
     ASIA ("","ARM");
 
-    public PhoneCode phoneCode;
+    public String phoneCode;
     public String countryName;
 
-    CountryPhoneCode (PhoneCode phoneCode,String countryName){
+    CountryPhoneCode (String phoneCode, String countryName){
         this.phoneCode = phoneCode;
         this.countryName = countryName;
     }
