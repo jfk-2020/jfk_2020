@@ -11,7 +11,6 @@ public class BDGLinkedList<E> implements List<E> {
 
     private Node<E> first;
     private Node<E> last;
-    private Node head;
     private int size = 0;
 
 
@@ -96,17 +95,18 @@ public class BDGLinkedList<E> implements List<E> {
 
     @Override
     public boolean add(E e) {
-        if (this.head == null) {
-            this.head = new Node(null, e, null);
+        if (this.first == null) {
+            this.first = new Node<>(null, e, null);
             this.size = 1;
             return true;
         }
-        Node current = head;
+        Node<E> current = first;
         while (current.next != null) {
             current = current.next;
         }
 
-        current.next = new Node(current, e, null);
+        current.next = new Node<>(current, e, null);
+        this.last = current.next;
         this.size++;
         return true;
     }
@@ -131,7 +131,13 @@ public class BDGLinkedList<E> implements List<E> {
 
     @Override
     public boolean addAll(Collection<? extends E> c) {
-        return false;
+        Iterator<?> iterator = c.iterator();
+        int i = size;
+        while (iterator.hasNext()) {
+            this.add(i, (E) iterator.next());
+            i++;
+        }
+        return true;
     }
 
     @Override
@@ -248,8 +254,7 @@ public class BDGLinkedList<E> implements List<E> {
             throw new NoSuchElementException("currentIndex:" + size + " , index:" + index);
         Node<E> temp;
         int count;
-        Node<E> el = new Node<E>((Node) element, null, null);
-        E pow;
+        Node<E> el = new Node<>(null, element, null);
         if (index <= size / 2) {
             temp = first;
             count = 0;
@@ -260,12 +265,21 @@ public class BDGLinkedList<E> implements List<E> {
                     temp.previous = el;
                     el.previous = pre;
                     pre.next = el;
+                    size++;
                     return;
                 }
                 count++;
                 temp = temp.next;
             }
         } else {
+
+            if (index >= size) {
+                last.next = new Node<>(last, element, null);
+                last = last.next;
+                size++;
+                return;
+            }
+
             temp = last;
             count = size - 1;
             while (temp != null) {
@@ -275,6 +289,7 @@ public class BDGLinkedList<E> implements List<E> {
                     temp.previous = el;
                     el.previous = pre;
                     pre.next = el;
+                    size++;
                     return;
                 }
                 count--;
@@ -501,7 +516,7 @@ public class BDGLinkedList<E> implements List<E> {
 
         StringBuilder builder = new StringBuilder("[");
 
-        Node current = head;
+        Node<E> current = first;
         while (current != null) {
             builder.append(current.element).append(", ");
             current = current.next;
@@ -513,11 +528,11 @@ public class BDGLinkedList<E> implements List<E> {
     private class Node<E> {
 
         E element;
-        Node next;
-        Node previous;
+        Node<E> next;
+        Node<E> previous;
 
-        Node(Node previews, E element, Node next) {
-            this.previous = previous;
+        Node(Node<E> previews, E element, Node<E> next) {
+            this.previous = previews;
             this.element = element;
             this.next = next;
         }
@@ -529,7 +544,11 @@ public class BDGLinkedList<E> implements List<E> {
         integers.add(10);
         integers.add(20);
         integers.add(40);
-        System.out.println(integers.contains(100));
+        List<Integer> toAdd = new BDGLinkedList<>();
+        toAdd.add(11);
+        toAdd.add(12);
+        integers.addAll(toAdd);
+        System.out.println(integers);
 
 
     }
