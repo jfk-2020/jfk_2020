@@ -12,6 +12,7 @@ import java.util.ListIterator;
 
 public class BDGLinkedList<E> implements List<E> {
 
+
     private Node head;
     private int size = 0;
 
@@ -32,12 +33,41 @@ public class BDGLinkedList<E> implements List<E> {
 
     @Override
     public boolean contains(Object o) {
+        if (head ==null){return false;}
+        Node current = head;
+        if (current.element.equals(o)){return true;}
+        while (current.next!=null){
+            current = current.next;
+            if (current.element.equals(o)){
+                return true;
+            }
+        }
         return false;
     }
 
     @Override
     public Iterator<E> iterator() {
         return null;
+    }
+    public class MyIterator implements Iterator<E>{
+        Node current = head;
+        @Override
+        public boolean hasNext() {
+
+        if (current != null){return true;}
+            return false;
+        }
+
+        @Override
+        public E next() {
+
+           if(current.next==null){
+             return current.element;
+            }
+         Node result = current;
+           current= current.next;
+           return result.element;
+        }
     }
 
     @Override
@@ -53,7 +83,7 @@ public class BDGLinkedList<E> implements List<E> {
     @Override
     public boolean add(E e) {
         if (this.head == null) {
-            this.head = new Node(null, e, null);
+            this.head = new Node(null, e, null ,10);
             this.size = 1;
             return true;
         }
@@ -62,13 +92,24 @@ public class BDGLinkedList<E> implements List<E> {
             current = current.next;
         }
 
-        current.next = new Node(current, e, null);
+        current.next = new Node(current, e, null , 10);
         this.size++;
         return true;
     }
 
     @Override
     public boolean remove(Object o) {
+        Node current = head;
+        if (current==null){return false;}
+        if (current.element.equals(o)){current.next.previews=null;size--;}//return if you want to remove only 1 node
+        while (current.next!=null){
+            current = current.next;
+            if (current.element.equals(o)){
+                current.previews.next=current.next;
+                size--;
+                return true;
+            }
+        }
         return false;
     }
 
@@ -104,26 +145,60 @@ public class BDGLinkedList<E> implements List<E> {
 
     @Override
     public E get(int index) {
+        int currentIndex = 0;
+        Node current = head;
+        while (current!=null){
+            current = current.next;
+            currentIndex++;
+            if (currentIndex==index){return current.element;}
+        }
         return null;
     }
 
     @Override
     public E set(int index, E element) {
-        return null;
+        int currentIndex = 0;
+        Node current = head;
+        while (current!=null){
+            current = current.next;
+            currentIndex++;
+            if (currentIndex==index){
+                current.element = element;
+            }
+        }
+        return null; //??????????????????????????????????????????????????????????????????????
     }
 
     @Override
     public void add(int index, E element) {
-
+    int currentIndex = 0;
+    Node current = head;
+    while (current!=null){
+        currentIndex++;
+        if (currentIndex == index){
+          current = new Node(current.previews,element ,current,50);
+        }
+        current = current.next;
+    }
     }
 
     @Override
     public E remove(int index) {
+
         return null;
     }
 
     @Override
     public int indexOf(Object o) {
+        Node current = head;
+        int currentIndex = 0;
+        while (current != null){
+            if (current.equals(o)){
+                return currentIndex;
+            }
+            current = current.next;
+            currentIndex++;
+        }
         return 0;
     }
 
@@ -212,8 +287,8 @@ public class BDGLinkedList<E> implements List<E> {
         E element;
         Node next;
         Node previews;
-
-        Node(Node previews, E element, Node next) {
+        int value;
+        Node(Node previews, E element, Node next , int value) {
             this.previews = previews;
             this.element = element;
             this.next = next;
@@ -225,7 +300,7 @@ public class BDGLinkedList<E> implements List<E> {
         integers.add(10);
         integers.add(20);
         integers.add(40);
-        System.out.println(integers.contains(100));
+        System.out.println(integers.contains(10));
 
 
     }
