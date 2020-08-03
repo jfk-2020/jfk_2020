@@ -32,17 +32,18 @@ public class HomeWorkLinkedList<E> implements List<E> {
     @Override
     public Iterator<E> iterator() {
         Iterator<E> iterator = new Iterator<E>() {
-
+            int index = 0;
             Node current = head;
 
             @Override
             public boolean hasNext() {
-                return false;
+                return index < size;
             }
 
             @Override
             public E next() {
-                return null;
+                index++;
+                return get(index);
             }
         };
         return iterator;
@@ -188,22 +189,41 @@ public class HomeWorkLinkedList<E> implements List<E> {
 
     private class Node {
         E element;
-        HomeWorkLinkedList.Node next;
-        HomeWorkLinkedList.Node previous;
+        Node next;
+        Node previous;
 
-        Node(HomeWorkLinkedList.Node previous, E element, HomeWorkLinkedList.Node next) {
+        Node(Node previous, E element, Node next) {
             this.previous = previous;
             this.element = element;
             this.next = next;
         }
     }
 
+    public String toString() {
+        if (size == 0) {
+            return "[]";
+        }
+
+        StringBuilder  builder = new StringBuilder("[");
+
+        Node current = head;
+        while (current != null) {
+            builder.append(current.element).append(", ");
+            current = current.next;
+        }
+        builder.append("]");
+        return builder.toString().replace(", ]", "]");
+    }
+
     public static void main(String[] args) {
-        List<Integer> integers = new BDGLinkedList<>();
+        List<Integer> integers = new HomeWorkLinkedList<>();
         integers.add(10);
         integers.add(20);
         integers.add(40);
-        System.out.println(integers.contains(100));
+        List<Integer> toAdd = new HomeWorkLinkedList<>();
+        toAdd.add(11);
+        integers.addAll(toAdd);
+        System.out.println(integers);
 
     }
 }
