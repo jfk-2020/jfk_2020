@@ -87,7 +87,6 @@ public class HomeWorkLinkedList<E> implements List<E> {
         while (current.next != null) {
             current = current.next;
         }
-
         current.next = new HomeWorkLinkedList.Node(current, e, null);
         this.size++;
         return true;
@@ -205,7 +204,6 @@ public class HomeWorkLinkedList<E> implements List<E> {
         integers.add(20);
         integers.add(40);
         System.out.println(integers.contains(100));
-
 
     }
 }
