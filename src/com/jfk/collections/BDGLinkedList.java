@@ -1,9 +1,6 @@
 package com.jfk.collections;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.*;
 
 /**
  * @author William Arustamyan
@@ -12,8 +9,8 @@ import java.util.ListIterator;
 
 public class BDGLinkedList<E> implements List<E> {
 
-
-    private Node head;
+    private Node<E> first;
+    private Node<E> last;
     private int size = 0;
 
 
@@ -23,243 +20,488 @@ public class BDGLinkedList<E> implements List<E> {
 
     @Override
     public int size() {
+
         return this.size;
     }
 
     @Override
     public boolean isEmpty() {
+
         return this.size == 0;
     }
 
     @Override
     public boolean contains(Object o) {
-        if (head ==null){return false;}
-        Node current = head;
-        if (current.element.equals(o)){return true;}
-        while (current.next!=null){
-            current = current.next;
-            if (current.element.equals(o)){
+        if (size == 0) {
+            return false;
+        }
+        Node<E> temp = first;
+        while (temp != null) {
+            if (temp.element.equals(o))
                 return true;
-            }
+            temp = temp.next;
         }
         return false;
     }
 
     @Override
     public Iterator<E> iterator() {
-        return null;
-    }
-    public class MyIterator implements Iterator<E>{
-        Node current = head;
-        @Override
-        public boolean hasNext() {
 
-        if (current != null){return true;}
-            return false;
-        }
+        Iterator<E> iterator = new Iterator<E>() {
+            Node<E> temp = first;
 
-        @Override
-        public E next() {
-
-           if(current.next==null){
-             return current.element;
+            @Override
+            public boolean hasNext() {
+                return temp != null;
             }
-         Node result = current;
-           current= current.next;
-           return result.element;
-        }
+
+            @Override
+            public E next() {
+                E pow = temp.element;
+                temp = temp.next;
+                return pow;
+            }
+        };
+        return iterator;
     }
 
     @Override
     public Object[] toArray() {
+        Object[] object = new Object[size];
+        int i = 0;
+        Node<E> temp = first;
+        while (temp != null) {
+            object[i] = first.element;
+            i++;
+            temp = temp.next;
+        }
         return new Object[0];
     }
 
     @Override
     public <T> T[] toArray(T[] a) {
-        return null;
+        if (a.length < size) {
+            a = Arrays.copyOf(a, size);
+        }
+        int i = 0;
+        Node<E> temp = first;
+        while (temp != null) {
+            a[i] = (T) first.element;
+            i++;
+            temp = temp.next;
+        }
+        return a;
     }
 
     @Override
     public boolean add(E e) {
-        if (this.head == null) {
-            this.head = new Node(null, e, null ,10);
+        if (this.first == null) {
+            this.first = new Node<>(null, e, null);
             this.size = 1;
             return true;
         }
-        Node current = head;
+        Node<E> current = first;
         while (current.next != null) {
             current = current.next;
         }
 
-        current.next = new Node(current, e, null , 10);
+        current.next = new Node<>(current, e, null);
+        this.last = current.next;
         this.size++;
         return true;
     }
 
     @Override
     public boolean remove(Object o) {
-        Node current = head;
-        if (current==null){return false;}
-        if (current.element.equals(o)){current.next.previews=null;size--;}//return if you want to remove only 1 node
-        while (current.next!=null){
-            current = current.next;
-            if (current.element.equals(o)){
-                current.previews.next=current.next;
-                size--;
-                return true;
-            }
-        }
         return false;
     }
 
     @Override
     public boolean containsAll(Collection<?> c) {
-        return false;
+        Iterator<?> iterator1 = c.iterator();
+        if (c.size() > this.size()) {
+            return false;
+        }
+        while (iterator1.hasNext()) {
+            if (!contains(iterator1.next()))
+                return false;
+        }
+        return true;
     }
 
     @Override
     public boolean addAll(Collection<? extends E> c) {
-        return false;
+        Iterator<?> iterator = c.iterator();
+        int i = size;
+        while (iterator.hasNext()) {
+            this.add(i, (E) iterator.next());
+            i++;
+        }
+        return true;
     }
 
     @Override
     public boolean addAll(int index, Collection<? extends E> c) {
-        return false;
+        Iterator<?> iterator = c.iterator();
+        int i = index;
+        while (iterator.hasNext()) {
+            this.add(i, (E) iterator.next());
+            i++;
+        }
+        return true;
     }
 
     @Override
     public boolean removeAll(Collection<?> c) {
-        return false;
+        Iterator<?> iterator = c.iterator();
+        while (iterator.hasNext()) {
+            remove(iterator.next());
+        }
+        return true;
     }
 
     @Override
     public boolean retainAll(Collection<?> c) {
-        return false;
+        Node<E> temp = first;
+        boolean t = false;
+        while (temp != null) {
+            if (!c.contains(temp.element)) {
+                this.remove(temp.element);
+                t = true;
+            }
+            temp = temp.next;
+        }
+        return t;
     }
 
     @Override
     public void clear() {
-
+        size = 0;
+        first.next = null;
+        last.previous = null;
+        first = last = null;
     }
 
     @Override
     public E get(int index) {
-        int currentIndex = 0;
-        Node current = head;
-        while (current!=null){
-            current = current.next;
-            currentIndex++;
-            if (currentIndex==index){return current.element;}
+        if (size == 0 || size < index) {
+            throw new NoSuchElementException("currentIndex:" + size + " , index:" + index);
+        }
+        Node<E> temp;
+        int count;
+        if (index <= size / 2) {
+            temp = first;
+            count = 0;
+            while (temp != null) {
+                if (count == index)
+                    return temp.element;
+                count++;
+                temp = temp.next;
+            }
+        } else {
+            temp = last;
+            count = size - 1;
+            while (temp != null) {
+                if (count == index)
+                    return temp.element;
+                count--;
+                temp = temp.previous;
+            }
+        }
+        return null;
+
+    }
+
+    @Override
+    public E set(int index, E element) {
+        if (size == 0 || size < index) {
+            throw new NoSuchElementException("currentIndex:" + size + " , index:" + index);
+        }
+        Node<E> temp;
+        int count;
+        E pow;
+        if (index <= size / 2) {
+            temp = first;
+            count = 0;
+            while (temp != null) {
+                if (count == index) {
+                    pow = temp.element;
+                    temp.element = element;
+                    return pow;
+                }
+                count++;
+                temp = temp.next;
+            }
+        } else {
+            temp = last;
+            count = size - 1;
+            while (temp != null) {
+                if (count == index) {
+                    pow = temp.element;
+                    temp.element = element;
+                    return pow;
+                }
+                count--;
+                temp = temp.previous;
+            }
         }
         return null;
     }
 
     @Override
-    public E set(int index, E element) {
-        int currentIndex = 0;
-        Node current = head;
-        while (current!=null){
-            current = current.next;
-            currentIndex++;
-            if (currentIndex==index){
-                current.element = element;
+    public void add(int index, E element) {
+        if (size == 0 || size < index)
+            throw new NoSuchElementException("currentIndex:" + size + " , index:" + index);
+        Node<E> temp;
+        int count;
+        Node<E> el = new Node<>(null, element, null);
+        if (index <= size / 2) {
+            temp = first;
+            count = 0;
+            while (temp != null) {
+                if (count == index) {
+                    el.next = temp;
+                    Node<E> pre = temp.previous;
+                    temp.previous = el;
+                    el.previous = pre;
+                    pre.next = el;
+                    size++;
+                    return;
+                }
+                count++;
+                temp = temp.next;
+            }
+        } else {
+
+            if (index >= size) {
+                last.next = new Node<>(last, element, null);
+                last = last.next;
+                size++;
+                return;
+            }
+
+            temp = last;
+            count = size - 1;
+            while (temp != null) {
+                if (count == index) {
+                    el.next = temp;
+                    Node<E> pre = temp.previous;
+                    temp.previous = el;
+                    el.previous = pre;
+                    pre.next = el;
+                    size++;
+                    return;
+                }
+                count--;
+                temp = temp.previous;
             }
         }
-        return null; //??????????????????????????????????????????????????????????????????????
-    }
-
-    @Override
-    public void add(int index, E element) {
-    int currentIndex = 0;
-    Node current = head;
-    while (current!=null){
-        currentIndex++;
-        if (currentIndex == index){
-          current = new Node(current.previews,element ,current,50);
-        }
-        current = current.next;
-    }
     }
 
     @Override
     public E remove(int index) {
-
+        if (size == 0 || size < index)
+            throw new NoSuchElementException("currentIndex:" + size + " , index:" + index);
+        E pow;
+        Node<E> temp;
+        Node<E> el;
+        int count;
+        if (index <= size / 2) {
+            temp = first;
+            count = 0;
+            while (temp != null) {
+                if (count == index) {
+                    pow = temp.element;
+                    el = temp.previous;
+                    el.next = temp.next;
+                    temp.next.previous = el;
+                    size--;
+                    return pow;
+                }
+                count++;
+                temp = temp.next;
+            }
+        } else {
+            temp = last;
+            count = size - 1;
+            while (temp != null) {
+                if (count == index) {
+                    pow = temp.element;
+                    el = temp.previous;
+                    el.next = temp.next;
+                    temp.next.previous = el;
+                    size--;
+                    return pow;
+                }
+                count--;
+                temp = temp.previous;
+            }
+        }
         return null;
     }
 
     @Override
     public int indexOf(Object o) {
-        Node current = head;
-        int currentIndex = 0;
-        while (current != null){
-            if (current.equals(o)){
-                return currentIndex;
+        if (o == null)
+            throw new NullPointerException("Is " + o);
+        BDGLinkedList.Node temp;
+        temp = first;
+        int count = 0;
+        while (temp != null) {
+            if (temp.element.equals(o)) {
+                return count;
             }
-            current = current.next;
-            currentIndex++;
+            count++;
+            temp = temp.next;
         }
-        return 0;
+        return -1;
     }
 
     @Override
     public int lastIndexOf(Object o) {
-        return 0;
+        if (o == null) {
+            throw new NullPointerException("Is " + o);
+        }
+        Node<E> temp;
+        temp = last;
+        int count = size - 1;
+        while (temp != null) {
+            if (temp.element.equals(o)) {
+                return count;
+            }
+            count--;
+            temp = temp.previous;
+        }
+        return -1;
     }
 
     @Override
     public ListIterator<E> listIterator() {
-        return new ListIterator<E>() {
+        ListIterator<E> listIterator = new ListIterator<E>() {
+            Node<E> temp = first;
+            private int index = 0;
+
             @Override
             public boolean hasNext() {
-                return false;
+                return temp != null;
             }
 
             @Override
             public E next() {
-                return null;
+                E pow = temp.element;
+                temp = temp.next;
+                index++;
+                return pow;
             }
 
             @Override
             public boolean hasPrevious() {
-                return false;
+                return temp != null;
             }
 
             @Override
             public E previous() {
-                return null;
+                E pow = temp.element;
+                temp = temp.previous;
+                if (index != 0)
+                    index--;
+                return pow;
             }
 
             @Override
             public int nextIndex() {
-                return 0;
+                return index;
             }
 
             @Override
             public int previousIndex() {
-                return 0;
+                return index - 1;
             }
 
             @Override
             public void remove() {
-
+                BDGLinkedList.this.remove(index);
             }
 
             @Override
             public void set(E e) {
-
+                BDGLinkedList.this.set(index, e);
             }
 
             @Override
             public void add(E e) {
-
+                BDGLinkedList.this.add(index, e);
             }
         };
+        return listIterator;
     }
 
     @Override
-    public ListIterator<E> listIterator(int index) {
-        return null;
+    public ListIterator<E> listIterator(int in) {
+        Node<E> pow = first;
+        int i = 0;
+        while (i != in) {
+            pow = pow.next;
+            i++;
+        }
+        Node<E> finalPow = pow;
+        ListIterator<E> listIterator = new ListIterator<E>() {
+            Node<E> temp = finalPow;
+            private int index = in;
+
+            @Override
+            public boolean hasNext() {
+                return temp != null;
+            }
+
+            @Override
+            public E next() {
+                E pow = temp.element;
+                temp = temp.next;
+                index++;
+                return pow;
+            }
+
+            @Override
+            public boolean hasPrevious() {
+                return temp != null;
+            }
+
+            @Override
+            public E previous() {
+                E pow = temp.element;
+                temp = temp.previous;
+                if (index != 0)
+                    index--;
+                return pow;
+            }
+
+            @Override
+            public int nextIndex() {
+                return index;
+            }
+
+            @Override
+            public int previousIndex() {
+                return index - 1;
+            }
+
+            @Override
+            public void remove() {
+                BDGLinkedList.this.remove(index);
+            }
+
+            @Override
+            public void set(E e) {
+                BDGLinkedList.this.set(index, e);
+            }
+
+            @Override
+            public void add(E e) {
+                BDGLinkedList.this.add(index, e);
+            }
+        };
+        return listIterator;
     }
 
     @Override
@@ -272,9 +514,9 @@ public class BDGLinkedList<E> implements List<E> {
             return "[]";
         }
 
-        StringBuilder  builder = new StringBuilder("[");
+        StringBuilder builder = new StringBuilder("[");
 
-        Node current = head;
+        Node<E> current = first;
         while (current != null) {
             builder.append(current.element).append(", ");
             current = current.next;
@@ -283,24 +525,30 @@ public class BDGLinkedList<E> implements List<E> {
         return builder.toString().replace(", ]", "]");
     }
 
-    private class Node {
+    private class Node<E> {
+
         E element;
-        Node next;
-        Node previews;
-        int value;
-        Node(Node previews, E element, Node next , int value) {
-            this.previews = previews;
+        Node<E> next;
+        Node<E> previous;
+
+        Node(Node<E> previews, E element, Node<E> next) {
+            this.previous = previews;
             this.element = element;
             this.next = next;
         }
     }
+
 
     public static void main(String[] args) {
         List<Integer> integers = new BDGLinkedList<>();
         integers.add(10);
         integers.add(20);
         integers.add(40);
-        System.out.println(integers.contains(10));
+        List<Integer> toAdd = new BDGLinkedList<>();
+        toAdd.add(11);
+        toAdd.add(12);
+        integers.addAll(toAdd);
+        System.out.println(integers);
 
 
     }
