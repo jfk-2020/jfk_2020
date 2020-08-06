@@ -47,28 +47,24 @@ public class BDGLinkedList<E> implements List<E> {
 
     @Override
     public Iterator<E> iterator() {
+Iterator iterator = new Iterator() {
+    int index = 0;
+
+    @Override
+    public boolean hasNext() {
+        return index <= size;
+    }
+
+    @Override
+    public Object next() {
+        index ++;
+
+        return get(index);
+    }
+    };
         return null;
     }
-    public class MyIterator implements Iterator<E>{
-        Node current = head;
-        @Override
-        public boolean hasNext() {
 
-        if (current != null){return true;}
-            return false;
-        }
-
-        @Override
-        public E next() {
-
-           if(current.next==null){
-             return current.element;
-            }
-         Node result = current;
-           current= current.next;
-           return result.element;
-        }
-    }
 
     @Override
     public Object[] toArray() {
@@ -115,22 +111,49 @@ public class BDGLinkedList<E> implements List<E> {
 
     @Override
     public boolean containsAll(Collection<?> c) {
-        return false;
+        int equalsCount =0;
+        Node current =head;
+        Iterator iterator = c.iterator();
+        while (iterator.hasNext()){
+            while (current.next !=null){
+                if (current.equals(iterator.hasNext())){equalsCount++;}
+            }
+        }
+        return equalsCount==c.size();
     }
 
     @Override
     public boolean addAll(Collection<? extends E> c) {
-        return false;
+        Iterator<?> iterator = c.iterator();
+        while (iterator.hasNext()){
+            this.add(size, (E) iterator.next());
+            size++;
+        }
+        return true;
     }
 
     @Override
     public boolean addAll(int index, Collection<? extends E> c) {
-        return false;
+        int i = index;
+        Iterator <?>iterator = c.iterator();
+        while (iterator.hasNext()){
+            add(i,(E)iterator.next());
+            i++;
+            size++;
+        }
+        return true;
     }
 
     @Override
     public boolean removeAll(Collection<?> c) {
-        return false;
+        Node current = head;
+        Iterator iterator = c.iterator();
+        while (iterator.hasNext()){
+            while (current.next!=null){
+                if (current.equals(iterator.next())){this.remove(current);size--;}
+            }
+        }
+        return true;
     }
 
     @Override
@@ -140,6 +163,8 @@ public class BDGLinkedList<E> implements List<E> {
 
     @Override
     public void clear() {
+        Node current = head;
+        current=null;
 
     }
 
@@ -166,7 +191,7 @@ public class BDGLinkedList<E> implements List<E> {
                 current.element = element;
             }
         }
-        return null; //??????????????????????????????????????????????????????????????????????
+        return element;
     }
 
     @Override
@@ -178,7 +203,7 @@ public class BDGLinkedList<E> implements List<E> {
         if (currentIndex == index){
           current = new Node(current.previews,element ,current,50);
         }
-        current = current.next;
+        current = current.next; size++;
     }
     }
 
