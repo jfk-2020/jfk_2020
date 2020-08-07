@@ -5,6 +5,7 @@ import java.util.*;
 public class HomeWorkLinkedList<E> implements List<E> {
 
     private Node head;
+    private Node tail;
     private int size = 0;
 
     @Override
@@ -31,21 +32,25 @@ public class HomeWorkLinkedList<E> implements List<E> {
 
     @Override
     public Iterator<E> iterator() {
-        Iterator<E> iterator = new Iterator<E>() {
+        return new Iterator<E>() {
 
             Node current = head;
 
             @Override
             public boolean hasNext() {
-                return false;
+                return current != null;
             }
 
             @Override
             public E next() {
-                return null;
+                if (hasNext()) {
+                    E data = current.element;
+                    current = current.next;
+                    return data;
+                }
+                return (E) iterator();
             }
         };
-        return iterator;
     }
 
     @Override
@@ -94,6 +99,22 @@ public class HomeWorkLinkedList<E> implements List<E> {
 
     @Override
     public boolean remove(Object o) {
+        Node current = head;
+        if (current == null) {
+            return false;
+        }
+        if (current.element.equals(o)) {
+            current.next.previous = null;
+            size--;
+        }
+        while (current.next != null) {
+            current = current.next;
+            if (current.element.equals(o)) {
+                current.previous.next = current.next;
+                size--;
+                return true;
+            }
+        }
         return false;
     }
 
@@ -123,27 +144,55 @@ public class HomeWorkLinkedList<E> implements List<E> {
 
     @Override
     public boolean addAll(int index, Collection<? extends E> c) {
-        return false;
+        Iterator<?> iterator = c.iterator();
+        int i = index;
+        while(iterator.hasNext()){
+            this.add(i, (E) iterator.next());
+            i++;
+        }
+        return true;
     }
 
     @Override
     public boolean removeAll(Collection<?> c) {
-        return false;
+        Iterator<?> iterator = c.iterator();
+        while (iterator.hasNext()) {
+            remove(iterator.next());
+        }
+        return true;
     }
 
     @Override
     public boolean retainAll(Collection<?> c) {
-        return false;
+        Node temp = head;
+        boolean t = false;
+        while (temp != null) {
+            if (!c.contains(temp.element)) {
+                this.remove(temp.element);
+                t = true;
+            }
+            temp = temp.next;
+        }
+        return t;
     }
 
     @Override
     public void clear() {
-
+        size = 0;
+        head.next = null;
+        tail.previous = null;
+        head = tail = null;
     }
 
     @Override
     public E get(int index) {
-        return null;
+        int current = 0;
+
+        while (current != index) {
+            head = head.next;
+            current++;
+        }
+        return (E) head;
     }
 
     @Override
