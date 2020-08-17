@@ -1,0 +1,9 @@
+address   | appNumber | account_id
+Baxramyan |  43       |  1
+Baxramyan |  43       |  1
+Proshyan  |  23       |  2
+
+1-1 One to One
+1-* One to Many
+*-1 Many to One
+*-* Many to Many
